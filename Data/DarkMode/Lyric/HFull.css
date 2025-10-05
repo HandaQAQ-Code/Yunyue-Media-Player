@@ -1,0 +1,502 @@
+body{
+    overflow: hidden;
+
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    background-image: url("https://p1.music.126.net/t47xJ6AwOv9qOQ51PZoiPw==/109951170052324935.jpg");
+    background-size: max(100vw,100vh);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    scroll-behavior: smooth;
+    backdrop-filter: blur(20px) brightness(0.6);
+}
+.Small{
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    opacity: 0.5;
+    transition: all 0.4s;
+}
+.Small:hover{
+    scale: 1.1;
+    opacity: 1;
+    transition: all 0.4s;
+}
+button{
+    width: 200px;
+    height: 100px;
+}
+div{
+    margin: 0;
+    padding: 0;
+}
+.Control{
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.594);
+    border-radius: 10px;
+    border-left: none;
+    border-bottom: none;
+    transition: all 0.4s;
+    width: 25vw;
+    margin-top: 40px;
+    position: relative;
+    height: 150px;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.leftI:hover{
+    box-shadow: 0px 0px 10px rgba(167, 167, 167, 0.402);
+    transition: all 0.4s;
+    scale: 1;
+}
+.leftI{
+    border: solid 1px rgba(255, 255, 255, 0.205);
+    border-left: none;
+    border-bottom: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    border-radius: 10px;
+    align-self: center;
+    height: 90px;
+    width: 90px;
+    background-size: cover;
+    opacity: 80%;
+    position: fixed;
+    top: 88vh;
+    left: 35vw;
+    z-index: 5;
+    background-image: url("https://p1.music.126.net/t47xJ6AwOv9qOQ51PZoiPw==/109951170052324935.jpg");
+    transition: all 0.4s;
+}
+.upper{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+.pd{
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: -60px;
+    width: 120px;
+    height: fit-content;
+    display: flex;
+    position: relative;
+    top: 5px;
+    transition: all 0.4s;
+}
+.Play:hover ,.Pause:hover{
+    scale: 1.05;
+    transition: all 0.4s;    
+}
+.Play{
+    position: relative;
+    left: -60px;
+    transition: all 0.4s;
+}
+.PlayS{
+    fill: rgb(255, 255, 255);
+    stroke: rgb(255, 255, 255);
+    opacity: 50%;
+    stroke-width: 9px;
+    transition: all 0.4s;    
+}
+.PauseS{
+    fill: rgb(255, 255, 255);
+    stroke: rgb(255, 255, 255);
+    opacity: 0%;
+    stroke-width: 10;
+}
+.Nxt,.Bc{
+    margin: 0px;
+    opacity: 55%;
+    scale: 0.8;
+    
+    transition: all 0.4s;
+}
+.Bc{
+    rotate: 180deg;
+}
+.Nxt:hover,.Bc:hover{
+    scale: 0.9;
+    transition: all 0.4s;
+    
+}
+.NxtSF,.NxtSB,.BcA,.BcB{
+    fill: rgb(255, 255, 255);
+    stroke: rgb(255, 255, 255);
+    opacity: 100%;
+    stroke-width: 9px;
+}
+.Nxt{
+    position: relative;
+    top: 5px;
+}
+.lower{
+    position: relative;
+    width:100%;
+    /* left: -10px; */
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.ProgressB{
+    align-self: center;
+    background-color: rgb(54 54 54 / 32%);
+    opacity: 100%;
+    width: 100%;
+    margin-left: 5%;
+    height: 5px;
+    margin-top: 30px;
+    border-radius: 10px;
+    margin-right: 5%;
+    transition: all 0.4s;
+
+
+
+ 
+}
+.ProgressB:hover{
+    border-radius: 8px;
+    height: 20px;
+}
+.ProgressB:hover .progress{
+    border-radius: 8px;
+    height: 20px;
+}
+.progress{
+    display: flex;
+    flex-shrink: 0;
+    justify-content: end;
+    width:100%;
+    border-radius: 10px;
+    height: 5px;
+    background-color: rgb(199, 199, 199);
+    box-shadow: 0px 0px 10px rgb(204, 204, 204);
+    transition: all 0.4s;
+}
+.Plu{
+    position: fixed;
+    opacity: 0;
+    border:solid 1px rgba(255, 255, 255, 0.112);
+    border-left: none;
+    background-color: rgba(71, 71, 71, 0.269);
+    padding: 5px;
+    width: 40px;
+    padding-bottom: 60px;
+    border-top-right-radius: 10px;
+    transition: all 0.4s;
+}
+.ProgressB:hover .handle{
+    opacity: 100%;
+    height: 15px;
+    transition: all 0.4s;
+}
+.handle{
+    cursor: pointer;
+    opacity: 0%;
+    background-color: rgba(108, 108, 108, 0.495);
+    width: 15px;
+    height: 15px;
+    position: relative;
+    margin-right: 5px;
+    top: 16%;
+    border-radius: 100px;
+    transition: all 0.4s;
+}
+.handle:hover{
+    background-color: rgba(108, 108, 108, 0.788);
+}
+@media screen and (min-width: 800px){
+    .MainD{
+        display: inline-flex;
+        width: 100vw;
+        height: 100vh;
+    }
+    .LT{
+        overflow: hidden;
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .HeadPic{
+        position: relative;
+        left: 20%;
+
+        top: -10%;
+        scale: 1;
+        border: none;
+        background-image: url("https://p1.music.126.net/t47xJ6AwOv9qOQ51PZoiPw==/109951170052324935.jpg");
+        background-size: 25vw;
+        border-radius: 30px;
+        height: min(25vw,430px);
+        width: min(25vw,430px);
+        box-shadow: 0 0 20px 1px rgba(47, 28, 46, 0.5);
+        transition: all 0.4s;
+    }
+    .HeadPic:hover{
+       scale: 1.05;
+       transition: all 0.4s;
+    }
+    .Info{
+        top: -5%;
+        width: 100%;
+        position: relative;
+        left: 20%;
+        overflow: hidden;
+    }
+    .LiName{
+        width: 95%;
+        height: 80px;
+        overflow: hidden;
+    }
+    .Name2{
+        height: 80px;
+        width: fit-content;
+        text-align: left;
+        font-size: 50px;
+        font-weight:bold;
+    }
+    .Name{
+        position: relative;
+        top: -84px;
+        height: 80px;
+        width: 100%;
+        text-align: left;
+        font-size: 50px;
+        font-weight:bold;
+    }
+    .Artist{
+        width: 100%;
+        height: 60px;
+        font-size: 30px;
+        font-weight:bold;
+        overflow: hidden;
+    }
+    .Album{
+        width: 100%;
+        height: 60px;
+        font-size: 30px;
+        font-weight:bold;
+        overflow: hidden;
+    }
+    iframe{
+        border: none;
+        scroll-behavior: smooth;
+        width: 103%;
+        height: 100%;
+    }
+    .RT{
+        width: 49%;
+        height: 100vh;
+ 
+    }
+}
+@media screen and (max-width: 800px){
+    .LiName{
+        width: 95%;
+        height: 80px;
+        overflow: hidden;
+    }
+    .Name2{
+        height: 80px;
+        width: fit-content;
+        text-align: center;
+        font-size: 50px;
+        font-weight:bold;
+    }
+    .Name{
+        position: relative;
+        top: -84px;
+        height: 80px;
+        width: 100%;
+        text-align: center;
+        font-size: 50px;
+        font-weight:bold;
+    }
+    .Artist{
+        text-align: center;
+        width: 100%;
+        height: 60px;
+        font-size: 30px;
+        font-weight:bold;
+        overflow: hidden;
+    }
+    .Album{
+        text-align: center;
+        width: 100%;
+        height: 60px;
+        font-size: 30px;
+        font-weight:bold;
+        overflow: hidden;
+    }
+    body{
+        height: 200vh;
+        background-size: 100vh;
+    }
+    .MainD{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+    .LT{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .HeadPic{
+        scale: 1;
+        border: none;
+        background-image: url("https://p1.music.126.net/t47xJ6AwOv9qOQ51PZoiPw==/109951170052324935.jpg");
+        background-size: 50vw;
+        border-radius: 30px;
+        align-self: center;
+        height: 50vw;
+        width: 50vw;
+        background-repeat: no-repeat;
+        margin-top: 10vh;
+        box-shadow: 0 0 20px 1px rgba(47, 28, 46, 0.5);
+        transition: all 0.4s;
+    }
+    .HeadPic:hover{
+       scale: 1.05;
+       transition: all 0.4s;
+    }
+    iframe{
+        border: none;
+        scroll-behavior: smooth;
+        width: 103%;
+        height: 100%;
+    }
+    .RT{
+        display: none;
+        height: 0px;
+        width: 100%;
+        height: 100vh;
+  
+    }
+}
+
+
+
+
+
+
+
+
+.xun-huan{
+    width: 53px;
+    height: 58px;
+    position: absolute;
+    left: 34px;
+}
+
+.xun:hover {
+    scale: 1.15;
+    transition: all 0.4s;
+    width: 53px;
+    height: 58px; 
+}
+
+.volume-container {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+ 
+}
+
+
+.volume-icon {
+
+    position: relative;
+    cursor: pointer;
+    padding: 1px;
+    transition: transform 0.2s;
+    background-color:  rgba(99, 99, 99, 0.6);
+    border: 1px solid rgb(162 145 149 / 27%);
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 0 13px rgb(162 145 149 / 27%);
+}
+
+
+
+.volume-icon:hover {
+    transform: scale(1.1);
+}
+
+.vertical-bar {
+    
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    transform: translateX(-50%);
+    display: none;
+  
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  
+}
+
+
+.volume-container:hover .vertical-bar {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.volume-track {
+    width: 50px;
+    height: 140px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+ 
+}
+
+.volume-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ffffff;
+    opacity: 1;
+    border-radius: 10px;
+    transition: height 0.1s;
+}
+
+.volume-percent {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 8px);
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}

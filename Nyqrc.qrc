@@ -1,0 +1,206 @@
+<RCC>
+    <qresource prefix="/Logo">
+        <file>Logo.ico</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Data/DarkMode/BackDrop/Default.jpg</file>
+        <file>Data/DarkMode/BackDrop/Fav.png</file>
+        <file>Data/DarkMode/BackDrop/Food.jpg</file>
+        <file>Data/DarkMode/BackDrop/His.png</file>
+        <file>Data/DarkMode/BackDrop/SeaSide.jpg</file>
+        <file>Data/DarkMode/BackDrop/UnknD.png</file>
+        <file>Data/DarkMode/BackDrop/User.png</file>
+        <file>Data/DarkMode/Lyric/images/svg.png</file>
+        <file>Data/DarkMode/Lyric/FullScreen.html</file>
+        <file>Data/DarkMode/Lyric/HFull.css</file>
+        <file>Data/DarkMode/Lyric/HFull.js</file>
+        <file>Data/DarkMode/Lyric/HLyric.css</file>
+        <file>Data/DarkMode/Lyric/HLyric.html</file>
+        <file>Data/DarkMode/Lyric/HLyric.js</file>
+        <file>Data/DarkMode/MyFav/Delete.png</file>
+        <file>Data/DarkMode/MyFav/Journey.png</file>
+        <file>Data/DarkMode/MyFav/MyFav.css</file>
+        <file>Data/DarkMode/MyFav/MyFav.html</file>
+        <file>Data/DarkMode/MyFav/MyFav.js</file>
+        <file>Data/DarkMode/MyMList/Delete.png</file>
+        <file>Data/DarkMode/MyMList/Edit.png</file>
+        <file>Data/DarkMode/MyMList/Journey.png</file>
+        <file>Data/DarkMode/MyMList/MyMList.css</file>
+        <file>Data/DarkMode/MyMList/MyMList.html</file>
+        <file>Data/DarkMode/MyMList/MyMList.js</file>
+        <file>Data/DarkMode/MyMusic/Delete.png</file>
+        <file>Data/DarkMode/MyMusic/Edit.png</file>
+        <file>Data/DarkMode/MyMusic/MyMusic.css</file>
+        <file>Data/DarkMode/MyMusic/MyMusic.html</file>
+        <file>Data/DarkMode/MyMusic/MyMusic.js</file>
+        <file>Data/DarkMode/MyVideo/Delete.png</file>
+        <file>Data/DarkMode/MyVideo/Edit.png</file>
+        <file>Data/DarkMode/MyVideo/MyVideo.css</file>
+        <file>Data/DarkMode/MyVideo/MyVideo.html</file>
+        <file>Data/DarkMode/MyVideo/MyVideo.js</file>
+        <file>Data/DarkMode/MyVList/Delete.png</file>
+        <file>Data/DarkMode/MyVList/Edit.png</file>
+        <file>Data/DarkMode/MyVList/Journey.png</file>
+        <file>Data/DarkMode/MyVList/MyVList.css</file>
+        <file>Data/DarkMode/MyVList/MyVList.html</file>
+        <file>Data/DarkMode/MyVList/MyVList.js</file>
+        <file>Data/DarkMode/Recomm/Journey.png</file>
+        <file>Data/DarkMode/Recomm/Recommand.css</file>
+        <file>Data/DarkMode/Recomm/Recommand.html</file>
+        <file>Data/DarkMode/Recomm/Recommand.js</file>
+        <file>Data/DarkMode/Setting/images/BgImage.png</file>
+        <file>Data/DarkMode/Setting/images/Chi.png</file>
+        <file>Data/DarkMode/Setting/images/Round.png</file>
+        <file>Data/DarkMode/Setting/images/Save.png</file>
+        <file>Data/DarkMode/Setting/images/svg (10).png</file>
+        <file>Data/DarkMode/Setting/images/svg (11).png</file>
+        <file>Data/DarkMode/Setting/images/svg (12).png</file>
+        <file>Data/DarkMode/Setting/images/svg (13).png</file>
+        <file>Data/DarkMode/Setting/images/svg (14).png</file>
+        <file>Data/DarkMode/Setting/images/svg (15).png</file>
+        <file>Data/DarkMode/Setting/images/svg (16).png</file>
+        <file>Data/DarkMode/Setting/images/svg (17).png</file>
+        <file>Data/DarkMode/Setting/images/svg (18).png</file>
+        <file>Data/DarkMode/Setting/images/svg (19).png</file>
+        <file>Data/DarkMode/Setting/images/svg (2).png</file>
+        <file>Data/DarkMode/Setting/images/svg (20).png</file>
+        <file>Data/DarkMode/Setting/images/svg (21).png</file>
+        <file>Data/DarkMode/Setting/images/svg (22).png</file>
+        <file>Data/DarkMode/Setting/images/svg (23).png</file>
+        <file>Data/DarkMode/Setting/images/svg (24).png</file>
+        <file>Data/DarkMode/Setting/images/svg (25).png</file>
+        <file>Data/DarkMode/Setting/images/svg (26).png</file>
+        <file>Data/DarkMode/Setting/images/svg (27).png</file>
+        <file>Data/DarkMode/Setting/images/svg (28).png</file>
+        <file>Data/DarkMode/Setting/images/svg (29).png</file>
+        <file>Data/DarkMode/Setting/images/svg (3).png</file>
+        <file>Data/DarkMode/Setting/images/svg (30).png</file>
+        <file>Data/DarkMode/Setting/images/svg (31).png</file>
+        <file>Data/DarkMode/Setting/images/svg (32).png</file>
+        <file>Data/DarkMode/Setting/images/svg (4).png</file>
+        <file>Data/DarkMode/Setting/images/svg (5).png</file>
+        <file>Data/DarkMode/Setting/images/svg (6).png</file>
+        <file>Data/DarkMode/Setting/images/svg (7).png</file>
+        <file>Data/DarkMode/Setting/images/svg (8).png</file>
+        <file>Data/DarkMode/Setting/images/svg (9).png</file>
+        <file>Data/DarkMode/Setting/images/Vector.png</file>
+        <file>Data/DarkMode/Setting/images/Yes.png</file>
+        <file>Data/DarkMode/Setting/Setting.css</file>
+        <file>Data/DarkMode/Setting/Setting.html</file>
+        <file>Data/DarkMode/Setting/Setting.js</file>
+        <file>Data/DarkMode/StartMenu/BG.png</file>
+        <file>Data/DarkMode/StartMenu/path.png</file>
+        <file>Data/DarkMode/StartMenu/Start.css</file>
+        <file>Data/DarkMode/StartMenu/Start.html</file>
+        <file>Data/DarkMode/StartMenu/Start.png</file>
+        <file>Data/DarkMode/Welcom/Back.png</file>
+        <file>Data/DarkMode/Welcom/Next.png</file>
+        <file>Data/DarkMode/Welcom/path.png</file>
+        <file>Data/DarkMode/Welcom/Welcome.css</file>
+        <file>Data/DarkMode/Welcom/Welcome.html</file>
+        <file>Data/DarkMode/Welcom/Welcome.js</file>
+        <file>Data/DarkMode/HCScript.js</file>
+        <file>Data/DarkMode/HCStyle.css</file>
+        <file>Data/DarkMode/HIndexM.html</file>
+        <file>Data/DarkMode/Inter-Bold.otf</file>
+        <file>Data/DarkMode/jsmediatags.min.js</file>
+        <file>Data/LightMode/BackDrop/Default.jpg</file>
+        <file>Data/LightMode/BackDrop/Fav.png</file>
+        <file>Data/LightMode/BackDrop/Food.jpg</file>
+        <file>Data/LightMode/BackDrop/His.png</file>
+        <file>Data/LightMode/BackDrop/SeaSide.jpg</file>
+        <file>Data/LightMode/BackDrop/UnknD.png</file>
+        <file>Data/LightMode/BackDrop/User.png</file>
+        <file>Data/LightMode/Lyric/images/svg.png</file>
+        <file>Data/LightMode/Lyric/FullScreen.html</file>
+        <file>Data/LightMode/Lyric/HFull.css</file>
+        <file>Data/LightMode/Lyric/HFull.js</file>
+        <file>Data/LightMode/Lyric/HLyric.css</file>
+        <file>Data/LightMode/Lyric/HLyric.html</file>
+        <file>Data/LightMode/Lyric/HLyric.js</file>
+        <file>Data/LightMode/MyFav/Delete.png</file>
+        <file>Data/LightMode/MyFav/Journey.png</file>
+        <file>Data/LightMode/MyFav/MyFav.css</file>
+        <file>Data/LightMode/MyFav/MyFav.html</file>
+        <file>Data/LightMode/MyFav/MyFav.js</file>
+        <file>Data/LightMode/MyMList/Delete.png</file>
+        <file>Data/LightMode/MyMList/Edit.png</file>
+        <file>Data/LightMode/MyMList/Journey.png</file>
+        <file>Data/LightMode/MyMList/MyMList.css</file>
+        <file>Data/LightMode/MyMList/MyMList.html</file>
+        <file>Data/LightMode/MyMList/MyMList.js</file>
+        <file>Data/LightMode/MyMusic/Delete.png</file>
+        <file>Data/LightMode/MyMusic/Edit.png</file>
+        <file>Data/LightMode/MyMusic/MyMusic.css</file>
+        <file>Data/LightMode/MyMusic/MyMusic.html</file>
+        <file>Data/LightMode/MyMusic/MyMusic.js</file>
+        <file>Data/LightMode/MyVideo/Delete.png</file>
+        <file>Data/LightMode/MyVideo/Edit.png</file>
+        <file>Data/LightMode/MyVideo/MyVideo.css</file>
+        <file>Data/LightMode/MyVideo/MyVideo.html</file>
+        <file>Data/LightMode/MyVideo/MyVideo.js</file>
+        <file>Data/LightMode/MyVList/Delete.png</file>
+        <file>Data/LightMode/MyVList/Edit.png</file>
+        <file>Data/LightMode/MyVList/Journey.png</file>
+        <file>Data/LightMode/MyVList/MyVList.css</file>
+        <file>Data/LightMode/MyVList/MyVList.html</file>
+        <file>Data/LightMode/MyVList/MyVList.js</file>
+        <file>Data/LightMode/Recomm/Journey.png</file>
+        <file>Data/LightMode/Recomm/Recommand.css</file>
+        <file>Data/LightMode/Recomm/Recommand.html</file>
+        <file>Data/LightMode/Recomm/Recommand.js</file>
+        <file>Data/LightMode/Setting/images/BgImage.png</file>
+        <file>Data/LightMode/Setting/images/Chi.png</file>
+        <file>Data/LightMode/Setting/images/Round.png</file>
+        <file>Data/LightMode/Setting/images/Save.png</file>
+        <file>Data/LightMode/Setting/images/svg (10).png</file>
+        <file>Data/LightMode/Setting/images/svg (11).png</file>
+        <file>Data/LightMode/Setting/images/svg (12).png</file>
+        <file>Data/LightMode/Setting/images/svg (13).png</file>
+        <file>Data/LightMode/Setting/images/svg (14).png</file>
+        <file>Data/LightMode/Setting/images/svg (15).png</file>
+        <file>Data/LightMode/Setting/images/svg (16).png</file>
+        <file>Data/LightMode/Setting/images/svg (17).png</file>
+        <file>Data/LightMode/Setting/images/svg (18).png</file>
+        <file>Data/LightMode/Setting/images/svg (19).png</file>
+        <file>Data/LightMode/Setting/images/svg (2).png</file>
+        <file>Data/LightMode/Setting/images/svg (20).png</file>
+        <file>Data/LightMode/Setting/images/svg (21).png</file>
+        <file>Data/LightMode/Setting/images/svg (22).png</file>
+        <file>Data/LightMode/Setting/images/svg (23).png</file>
+        <file>Data/LightMode/Setting/images/svg (24).png</file>
+        <file>Data/LightMode/Setting/images/svg (25).png</file>
+        <file>Data/LightMode/Setting/images/svg (26).png</file>
+        <file>Data/LightMode/Setting/images/svg (27).png</file>
+        <file>Data/LightMode/Setting/images/svg (28).png</file>
+        <file>Data/LightMode/Setting/images/svg (29).png</file>
+        <file>Data/LightMode/Setting/images/svg (3).png</file>
+        <file>Data/LightMode/Setting/images/svg (30).png</file>
+        <file>Data/LightMode/Setting/images/svg (31).png</file>
+        <file>Data/LightMode/Setting/images/svg (32).png</file>
+        <file>Data/LightMode/Setting/images/svg (4).png</file>
+        <file>Data/LightMode/Setting/images/svg (5).png</file>
+        <file>Data/LightMode/Setting/images/svg (6).png</file>
+        <file>Data/LightMode/Setting/images/svg (7).png</file>
+        <file>Data/LightMode/Setting/images/svg (8).png</file>
+        <file>Data/LightMode/Setting/images/svg (9).png</file>
+        <file>Data/LightMode/Setting/images/svgA.png</file>
+        <file>Data/LightMode/Setting/images/svgB.png</file>
+        <file>Data/LightMode/Setting/images/svgC.png</file>
+        <file>Data/LightMode/Setting/images/Vector.png</file>
+        <file>Data/LightMode/Setting/images/Yes.png</file>
+        <file>Data/LightMode/Setting/Setting.css</file>
+        <file>Data/LightMode/Setting/Setting.html</file>
+        <file>Data/LightMode/Setting/Setting.js</file>
+        <file>Data/LightMode/StartMenu/BG.png</file>
+        <file>Data/LightMode/StartMenu/path.png</file>
+        <file>Data/LightMode/StartMenu/Start.css</file>
+        <file>Data/LightMode/StartMenu/Start.html</file>
+        <file>Data/LightMode/StartMenu/Start.png</file>
+        <file>Data/LightMode/HCScript.js</file>
+        <file>Data/LightMode/HCStyle.css</file>
+        <file>Data/LightMode/HIndexM.html</file>
+        <file>Data/LightMode/Inter-Bold.otf</file>
+        <file>Data/LightMode/jsmediatags.min.js</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置页面</title>
+    <link rel="stylesheet" href="./Setting.css">
+</head>
+<style>
+    @font-face {
+        font-family: "Bits";
+        src: url("../Inter-Bold.otf");
+  }
+
+  * {
+    font-family: "Bits", serif;
+  }
+</style>
+<body>
+    <div class="container">
+        <!-- 主菜单页面 -->
+        <div class="page main-menu active">
+            <div class="shezhi">
+                <ul class="slb">
+                    <li class="lb" data-target="ypsz"><img src="./images/svg (2).png" alt="" class="tp">音频设置
+                        <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    </li>
+                    <li class="lb" data-target="wgjm"><img src="./images/svg (3).png" alt="" class="tp">外观和界面设置
+                        <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    </li>
+                    <li class="lb" data-target="gjsz"><img src="./images/svg (4).png" alt="" class="tp">高级设置
+                        <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    </li>
+                    <li class="lb" data-target="kjjsz"><img src="./images/svg (5).png" alt="" class="tp">快捷键设置
+                        <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    </li>
+                    <li class="lb" data-target="ysyaq"><img src="./images/svg (6).png" alt="" class="tp">隐私和安全设置
+                        <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    </li>
+                    <li class="lb" data-target="gyhbz"><img src="./images/svg (7).png" alt="" class="tp">关于和帮助
+                        <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 音频设置 -->
+        <div class="page settings-page ypsz">
+            <div class="back-btn">← 返回</div>
+            <h4 class="bt">音频设置</h4>
+            <ul class="slb">
+                <li class="lb"><img src="./images/svg (10).png" alt="" class="tp">响度平衡
+                    <span style="margin-left: auto;">
+                        <label class="switch"> 
+                            <input type="checkbox" class="SoundBalance">
+                            <span class="slider" onclick="Toggle()" ></span>
+                          </label>
+                    </span>
+                    
+                </li>
+                <li class="lb menu-item">
+                    <img src="./images/svg (9).png" alt="" class="tp">音频效果
+                    <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    <ul class="submenu MusicR">
+                        <li class="subitem activeS Defa" onclick="Reset()"><img src="./images/Round.png" alt="" class="tp">无
+                            <span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>
+                        <li class="subitem c LowS" onclick="Low()"><img src="./images/svg (23).png" alt="" class="tp">低音增强
+                            <span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>
+                        <li class="subitem c HighS" onclick="High()"><img src="./images/svg (24).png" alt="" class="tp">高音增强
+                            <span style="margin-left: auto;"><img src="./images/Yes.png" alt=""class="jt2"></span>
+                        <li class="subitem c VocS" onclick="Voval()"><img src="./images/svg (25).png" alt="" class="tp">人声清晰
+                            <span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>
+                    </ul>
+                </li>  
+                <li class="lb menu-item"><img src="./images/svg (8).png" alt="" class="tp">声道调整
+                    <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                
+                    <ul class="submenu">
+                        <li class="subitem activeS" style="margin: 0; height: auto;">
+                            <div class="channel-control">
+                                <div class="channel-row">
+                                    <!-- 左声道 -->
+                                    <img src="./images/svg (28).png" alt="" class="tp" style="margin: 0 10px;">
+                                    <span>左声道</span>
+                                    <input type="range" class="slider1" id="leftSlider" min="0" max="100" value="100">
+                                </div>
+                                <div class="channel-row">
+                                    <!-- 右声道 -->
+                                    <img src="./images/svg (29).png" alt="" class="tp" style="margin: 0 10px;">
+                                    <span>右声道</span>
+                                    <input type="range" class="slider1" id="rightSlider" min="0" max="100" value="100">
+                                </div>
+                            </div>
+                        </li>
+                            
+                      
+                    </ul>
+                </li>
+          
+                
+            </ul>
+        </div>
+
+        <div class="page settings-page wgjm">
+            <div class="back-btn">← 返回</div>
+            <h4 class="bt">外观和界面</h4>
+            <ul class="slb">
+                <li class="lb menu-item"  onclick="Hides()"><img src="./images/svg (11).png" alt="" class="tp">主题选择
+                    <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    <ul class="submenu">
+                        <li class="subitem activeS"  ><img src="./images/svg (26).png" alt="" class="tp">亮色模式<span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>                   
+                        <li class="subitem " onclick="window.top.ChangeMD();setTimeout(function(){ws.send('dark');},1000)" ><img src="./images/svg (27).png" alt="" class="tp">暗色模式<span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>
+                        <li class="subitem"  onclick="window.top.ChangeMD();setTimeout(function(){ws.send('follow');},1000)"><img src="./images/Round.png" alt="" class="tp">跟随系统<span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>
+                    </ul>
+                </li>
+                <li class="lb menu-item"><img src="./images/svg (12).png" alt="" class="tp">界面语言
+                    <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    <ul class="submenu activeS">
+                        <li class="subitem"><img src="./images/Chi.png" alt="" class="tp">中文     <span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>                                     
+                    </ul>
+                </li>
+                <li class="lb menu-item BGS"><img src="./images/BgImage.png" alt="" class="tp" >自定义背景
+                    <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    <ul class="submenu">
+                        <li class="subitem activeS" onclick="Bg(0)"><img src="./images/svgA.png" alt="" class="tp" >夜幕降临<span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>                   
+                        <li class="subitem" onclick="Bg(1)"><img src="./images/svgB.png" alt="" class="tp" >夜晚巷陌<span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>                
+                        <li class="subitem" onclick="Bg(2)"><img src="./images/svgC.png" alt="" class="tp" >海边日落<span style="margin-left: auto;"><img src="./images/Yes.png" alt="" class="jt2"></span>                
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <div class="page settings-page gjsz">
+            <div class="back-btn">← 返回</div>
+            <h4 class="bt">高级设置</h4>
+            <ul class="slb">
+          
+                <li class="lb menu-item"><img src="./images/svg (13).png" alt="" class="tp">网络代理
+                    <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                    <ul class="submenu">
+                        <li class="subitem subIP">
+                            <div class="cx">
+                                <span class="dzdz"> 
+                                    <span ><img src="./images/svg (30).png" alt="" class="tp">地址</span>
+                                    <input type="text" class="cxx1"  pattern="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" title="请输入有效的IPv4地址（如：192.168.1.1）" required>
+                                    <span><img src="./images/svg (31).png" alt="" class="tp">端口</span>
+                                    <input type="text" class="cxx2" title="XXXX" >
+                                </span>
+                                
+                                <span class="dzdz1" >
+                                    <span style="display: flex; align-items: center; color: rgb(179, 179, 179);">
+                                        <img src="./images/svg (32).png" alt="" class="tp">
+                                        无需代理请留空
+                                    </span>
+                                    <button class="qdan">确定</button>
+                                </span>                             
+                            </div>
+                        </li>                                   
+                    </ul>
+                </li>
+                
+                
+                <li class="lb" ><img src="./images/svg (14).png" alt="" class="tp">硬件加速（不支持设备默认关闭）
+                    <span style="margin-left: auto;">
+                        <label class="switch"> 
+                            <input type="checkbox" class="GPUBoost" >
+                            <span class="slider" onclick="ws.send('HardWare');if(!document.querySelector('.GPUBoost').checked){window.top.Alert('已开启硬件加速,重启生效');}else{window.top.Alert('关闭硬件加速会带来严重的性能损失，我们将降低部分动画效果。如果没有必要，请勿关闭。');}"></span>
+                        </label>
+                    </span>
+                </li>
+            
+            </ul>
+           
+        </div>
+        <div class="page settings-page kjjsz">
+                  <div class="back-btn SubShort" onclick="SubAll()">← 保存</div>
+                  <h4 class="bt">快捷键设置</h4>
+                  <ul class="slb">
+                      <li class="lb shortcut-item">
+                          <img src="./images/svg (15).png" alt="" class="tp">播放/暂停
+                          <span class="shortcut-input-container" >
+                              <input type="text" class="shortcut-input Pause" value="Space" placeholder="请输入按键" readonly>
+                          </span>
+                          <span class="shortcut-display Pau" style="display: block;" >Space</span>
+                      </li>
+                      <li class="lb shortcut-item">
+                          <img src="./images/svg (16).png" alt="" class="tp">音量调节+
+                          <span class="shortcut-input-container">
+                              <input type="text" class="shortcut-input VolumeU" value="ARROWUP" placeholder="请输入按键" readonly>
+                          </span>
+                          <span class="shortcut-display VU" style="display: block;" >↑</span>
+                      </li>
+                      <li class="lb shortcut-item">
+                          <img src="./images/svg (16).png" alt="" class="tp">音量调节-
+                          <span class="shortcut-input-container">
+                              <input type="text" class="shortcut-input VolumeD" value="ARROWDOWN" placeholder="请输入按键" readonly>
+                          </span>
+                          <span class="shortcut-display VD" style="display: block;" >↓</span>
+                      </li>
+                      <li class="lb shortcut-item">
+                          <img src="./images/svg (17).png" alt="" class="tp">前进
+                          <span class="shortcut-input-container">
+                              <input type="text" class="shortcut-input Fast" value="ARROWRIGHT" placeholder="请输入按键" readonly>
+                          </span>
+                          <span class="shortcut-display VR" style="display: block;" >→</span>
+                      </li>
+                      <li class="lb shortcut-item">
+                          <img src="./images/svg (17).png" alt="" class="tp">后退
+                          <span class="shortcut-input-container">
+                              <input type="text" class="shortcut-input Back"  value="ARROWLEFT" placeholder="请输入按键" readonly>
+                          </span>
+                          <span class="shortcut-display VL" style="display: block;" >←</span>
+                      </li>
+                  </ul>
+
+              </div>
+        <div class="page settings-page ysyaq">
+            <div class="back-btn">← 返回</div>
+            <h4 class="bt">隐私与安全设置</h4>
+            <ul class="slb">
+                <li class="lb"><img src="./images/svg (18).png" alt="" class="tp">播放历史记录
+                    <span style="margin-left: auto;">
+                        <label class="switch"> 
+                            <input type="checkbox" class="History">
+                            <span class="slider" onclick="ws.send('History')"></span>
+                        </label>
+                    </span>
+                </li>
+                <li class="lb"><img src="./images/svg (19).png" alt="" class="tp">日志记录
+                    <span style="margin-left: auto;">
+                        <label class="switch"> 
+                            <input type="checkbox" class="Log">
+                            <span class="slider" onclick="ws.send('log')"></span>
+                        </label>
+                    </span>
+                </li>
+            </ul>        
+        </div>
+        <div class="page settings-page gyhbz">
+            <div class="back-btn">← 返回</div>
+            <h4 class="bt">关于和帮助</h4>
+            <ul class="slb">
+                <li class="lb"><img src="./images/svg (20).png" alt="" class="tp">版本信息
+                    <span style="margin-left: auto; font-size: 15px; color: #afadad;">Dev 1.0.0</span>
+                </li>
+                <li class="lb"><img src="./images/svg (21).png" alt="" class="tp">帮助文档
+                    <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                </li>
+                <li class="lb"><img src="./images/svg (22).png" alt="" class="tp">反馈和建议
+                    <span style="margin-left: auto;"><img src="./images/Vector.png" alt="" class="jt"></span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="./Setting.js"></script>
+ 
+        
+    
+</body>
+</html>

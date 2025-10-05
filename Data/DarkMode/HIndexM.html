@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" ondrop="dropHandler(event)" ondragleave="dragOut()" ondragover="dragOverHandler(event)">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="HCStyle.css">
+
+    <style>
+        @font-face {
+            font-family: "Bits";
+            src: url("./Inter-Bold.otf");
+      }
+
+      * {
+        font-family: "Bits", serif;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="alertBox">
+        <?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 25C14 19.4772 18.4772 15 24 15C29.5228 15 34 19.4772 34 25V41H14V25Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/><path d="M24 5V8" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M35.8918 9.32823L33.9634 11.6264" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M42.2187 20.2873L39.2642 20.8083" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.78116 20.2874L8.73558 20.8083" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.1086 9.32802L14.037 11.6262" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 41H43" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="Inform">
+            <h1 id="NameI">注意</h1>
+            <h1 class="ContentA">非法操作</h1>
+            <button onmouseup="AletFinish()">确认</button>
+        </div>
+    </div>
+    <div class="TransPort"></div>
+    <canvas class="MusicVis" style="opacity: 0;"></canvas>
+    <div class="SearchHistory HotHide">
+        <h1>搜索历史</h1>
+        <div class="collect">
+            <span class="tgs" onclick="Fill(this)">Rain On Me</span>
+        </div>
+    </div>
+    <!--
+    <div class="HotBoard HotHide">
+        <h1>当前热门</h1>
+        <div class="TripleL">
+        <div class="NetSet">
+            网易云
+            <ol>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+            </ol>
+        </div>
+        <div class="QQ">
+            QQ音乐
+            <ol>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+            </ol>
+        </div>
+        <div class="Spotify">
+            Spotify
+            <ol>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+                <li>沉溺于你</li>
+            </ol>
+        </div>
+        </div>
+    </div>  -->
+    <div class="MyPlayList HotHide">
+        <h1>正在播放<br class="CurT">暂无</h1>
+        <h1>接下来播放<br></h1>
+       <ul class="NextPl">
+            
+       </ul>
+    </div>
+
+    <div class="BG">
+    </div>
+    <div class="volume-container">
+        <div class="volume-icon"><svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6V42C17 42 11.7985 32.8391 11.7985 32.8391H6C4.89543 32.8391 4 31.9437 4 30.8391V17.0108C4 15.9062 4.89543 15.0108 6 15.0108H11.7985C11.7985 15.0108 17 6 24 6Z" fill="none" stroke="#f3f2f2" stroke-width="4" stroke-linejoin="round"/><path d="M32 15L32 15C32.6232 15.5565 33.1881 16.1797 33.6841 16.8588C35.1387 18.8504 36 21.3223 36 24C36 26.6545 35.1535 29.1067 33.7218 31.0893C33.2168 31.7885 32.6391 32.4293 32 33" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M34.2359 41.1857C40.0836 37.6953 44 31.305 44 24C44 16.8085 40.2043 10.5035 34.507 6.97906" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round"/></svg></div>
+        <div class="wrapper" onmouseover="Re()" onmouseleave="Bc()">
+        <div class="vertical-bar">
+            <div class="volume-track" id="volumeTrack">
+                <div class="volume-progress" id="volumeProgress"></div>
+                <svg class="Mute" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect opacity="0.01" x="30" y="18" width="13" height="13" fill="#555555"/><mask id="icon-6a350e8de6a0e536" maskUnits="userSpaceOnUse" x="30" y="18" width="13" height="13" style="mask-type: alpha"><rect x="30" y="18" width="13" height="13" fill="#555555"/></mask><g mask="url(#icon-6a350e8de6a0e536)"><path d="M40.7348 20.2858L32.2495 28.7711" stroke="#555555" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32.2496 20.2858L40.7349 28.7711" stroke="#555555" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M24 6V42C17 42 11.7985 32.8391 11.7985 32.8391H6C4.89543 32.8391 4 31.9437 4 30.8391V17.0108C4 15.9062 4.89543 15.0108 6 15.0108H11.7985C11.7985 15.0108 17 6 24 6Z" fill="none" stroke="#555555" stroke-width="4" stroke-linejoin="round"/></svg>
+                <svg class="Min" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6V42C17 42 11.7985 32.8391 11.7985 32.8391H6C4.89543 32.8391 4 31.9437 4 30.8391V17.0108C4 15.9062 4.89543 15.0108 6 15.0108H11.7985C11.7985 15.0108 17 6 24 6Z" fill="none" stroke="#555555" stroke-width="4" stroke-linejoin="round"/><path d="M32 15L32 15C32.6232 15.5565 33.1881 16.1797 33.6841 16.8588C35.1387 18.8504 36 21.3223 36 24C36 26.6545 35.1535 29.1067 33.7218 31.0893C33.2168 31.7885 32.6391 32.4293 32 33" stroke="#555555" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="Max" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6V42C17 42 11.7985 32.8391 11.7985 32.8391H6C4.89543 32.8391 4 31.9437 4 30.8391V17.0108C4 15.9062 4.89543 15.0108 6 15.0108H11.7985C11.7985 15.0108 17 6 24 6Z" fill="none" stroke="#555555" stroke-width="4" stroke-linejoin="round"/><path d="M32 15L32 15C32.6232 15.5565 33.1881 16.1797 33.6841 16.8588C35.1387 18.8504 36 21.3223 36 24C36 26.6545 35.1535 29.1067 33.7218 31.0893C33.2168 31.7885 32.6391 32.4293 32 33" stroke="#555555" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M34.2359 41.1857C40.0836 37.6953 44 31.305 44 24C44 16.8085 40.2043 10.5035 34.507 6.97906" stroke="#555555" stroke-width="4" stroke-linecap="round"/></svg></div>
+        </div>
+         </div>
+    </div>
+<div class="cover">
+    <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="#ffffff" stroke-width="4"/><path d="M26 14V28" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 28.6655C14 26.6411 15.9341 25 18.32 25H26V29.3345C26 31.3589 24.0659 33 21.68 33H18.32C15.9341 33 14 31.3589 14 29.3345V28.6655Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/><path d="M32 15L26 14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="Inform">
+        <h1 id="NameI">松开鼠标</h1>
+        <h1>播放文件</h1>
+    </div>
+</div>
+<div class="cover2">
+    <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/><path d="M24 36C30.6274 36 36 30.6274 36 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="Inform">
+        <h1 id="NameI">加载中</h1>
+    </div>
+</div>
+    <div class="Top">
+        <div class="TripleB">
+            <svg onclick="Miny()" id="Min"  width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 24L38.5 24" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg onclick="FullM()" id="All" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z" fill="none" stroke="#f3f2f2" stroke-width="4"/></svg>
+            <svg onclick="Close()" id="Cls" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 14L34 34" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 34L34 14" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+       </div>
+        <div class="SearchB">
+            <div class="searchBar">            
+                <svg  onclick="Expand()" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z"
+                    fill="none" stroke="#f3f3f3" stroke-width="4" stroke-linejoin="round" />
+                <path d="M26.657 14.3431C25.2093 12.8954 23.2093 12 21.0001 12C18.791 12 16.791 12.8954 15.3433 14.3431"
+                    stroke="#f3f3f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M33.2216 33.2217L41.7069 41.707" stroke="#f3f3f3" stroke-width="4" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <input type="text" class="Search" disabled="disabled">
+            </div>
+            <div class="Filter">
+                <div class="option">
+                    <a id="1" onclick="Change(this)">视频</a>
+                    <a id="2" onclick="Change(this)">音乐</a>
+                    <a class="a3" id="a3" onclick="Change(this)">视频</a>
+                </div>
+                <svg onclick="Exp()" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36 18L24 30L12 18" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div onclick="Back()" class="Back"><?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 42L33 33M6 6L15 15L6 6Z" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42L15 33M42 6L33 15L42 6Z" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 29C26.7614 29 29 26.7614 29 24C29 21.2386 26.7614 19 24 19C21.2386 19 19 21.2386 19 24C19 26.7614 21.2386 29 24 29Z" fill="none" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="ListN" onclick="Expan2()">
+            <div class="searchBar">            
+                <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 19H40" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 10H40" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 38H40" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 28H40" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10L16 15L8 20V10Z" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/></svg></div>
+                <p class="nameL">当前播放列表</p>
+            <div onclick="Back()" class="Back"><?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 42L33 33M6 6L15 15L6 6Z" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42L15 33M42 6L33 15L42 6Z" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 29C26.7614 29 29 26.7614 29 24C29 21.2386 26.7614 19 24 19C21.2386 19 19 21.2386 19 24C19 26.7614 21.2386 29 24 29Z" fill="none" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+       
+            <div class="File"></div>
+    </div>
+    <div class="customM">
+    <iframe  class="MainShow" id="MainShow" name="MainShow" src="./StartMenu/Start.html"></iframe>
+    </div>
+    <div class="Side">
+        <div class="UserInfo">
+            <img class="Head" src="./BackDrop/User.png" style="opacity: 0.5;">
+            <h1 class="User">Hello</h1>
+        </div>
+        <button class="Hide">
+            <svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+                    fill="none" stroke="#e2e2e2" stroke-width="4" stroke-linejoin="round" />
+                <path d="M32.4917 24.5H14.4917" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M23.4917 15.5L14.4917 24.5L23.4917 33.5" stroke="#e2e2e2" stroke-width="4"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+        <ul>
+            <li><a class = "side g" id="Fav" onmouseup="MyF(this)">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10.8579 9.85803C7.23858 13.4773 5 18.4773 5 24.0002C5 29.523 7.23858 34.523 10.8579 38.1423"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                        <path
+                            d="M39.1421 38.1423C42.7614 34.523 45 29.523 45 24.0002C45 18.4773 42.7614 13.4773 39.1421 9.85803"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                        <path
+                            d="M34.8994 33.8997C37.4329 31.3662 38.9999 27.8662 38.9999 24.0002C38.9999 20.1342 37.4329 16.6342 34.8994 14.1007"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                        <path
+                            d="M15.1005 14.1007C12.567 16.6342 11 20.1342 11 24.0002C11 27.8662 12.567 31.3662 15.1005 33.8997"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                        <path
+                            d="M28.1818 20C30.2905 20 32 21.6118 32 23.6C32 26.1882 29.4545 28.4 28.1818 29.6C27.3333 30.4 26.2727 31.2 25 32C23.7273 31.2 22.6667 30.4 21.8182 29.6C20.5455 28.4 18 26.1882 18 23.6C18 21.6118 19.7095 20 21.8182 20C23.1463 20 24.316 20.6393 25 21.6093C25.684 20.6393 26.8537 20 28.1818 20Z"
+                            fill="none" stroke="#e2e2e2" stroke-width="4" stroke-linejoin="round" />
+                    </svg> 我的最爱
+                </a></li>
+            <li ><a  class = "side" id="MyMusi" onmouseup="MyF(this)" href="#">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+                            stroke="#e2e2e2" stroke-width="4" />
+                        <path d="M26 14V28" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M14 28.6655C14 26.6411 15.9341 25 18.32 25H26V29.3345C26 31.3589 24.0659 33 21.68 33H18.32C15.9341 33 14 31.3589 14 29.3345V28.6655Z"
+                            fill="none" stroke="#e2e2e2" stroke-width="4" stroke-linejoin="round" />
+                        <path d="M32 15L26 14" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    我的音乐
+                </a></li>
+            <li ><a class = "side" id="MyLis" onmouseup="MyF(this)" href="#">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 3.99976V43.9998" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                        <path d="M34 11.9998V35.9998" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                        <path d="M4 17.9998V29.9998" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                        <path d="M44 17.9998V29.9998" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                        <path d="M14 11.9998V35.9998" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+                    我的歌单
+                </a></li>
+            <li ><a class = "side" id="MyVide" onmouseup="MyF(this)" href="#">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M20.5 28V21.9378L25.75 24.9689L31 28L25.75 31.0311L20.5 34.0622V28Z" fill="none"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 15H42" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M33 6L27 15" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M21 6L15 15" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    我的视频
+                </a></li>
+            <li ><a class = "side" id="PlayL" onmouseup="MyF(this)" href="#">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9 42C11.2091 42 13 40.2091 13 38C13 35.7909 11.2091 34 9 34C6.79086 34 5 35.7909 5 38C5 40.2091 6.79086 42 9 42Z"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linejoin="round" />
+                        <path
+                            d="M9 14C11.2091 14 13 12.2092 13 10C13 7.79086 11.2091 6 9 6C6.79086 6 5 7.79086 5 10C5 12.2092 6.79086 14 9 14Z"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linejoin="round" />
+                        <path
+                            d="M9 28C11.2091 28 13 26.2092 13 24C13 21.7908 11.2091 20 9 20C6.79086 20 5 21.7908 5 24C5 26.2092 6.79086 28 9 28Z"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linejoin="round" />
+                        <path d="M21 24H43" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M21 38H43" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M21 10H43" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    视频列表
+                </a></li>
+            <li ><a class = "side" id="Rec" onmouseup="MyF(this)" href="#">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 19H43V40C43 41.1046 42.1046 42 41 42H7C5.89543 42 5 41.1046 5 40V19Z" fill="none"
+                            stroke="#e2e2e2" stroke-width="4" stroke-linejoin="round" />
+                        <path d="M5 9C5 7.89543 5.89543 7 7 7H41C42.1046 7 43 7.89543 43 9V19H5V9Z" stroke="#e2e2e2"
+                            stroke-width="4" stroke-linejoin="round" />
+                        <path d="M16 4V12" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M32 4V12" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M28 34H34" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M14 34H20" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M28 26H34" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M14 26H20" stroke="#e2e2e2" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    今日推荐
+                </a></li>
+            <li ><a class = "side" id="Setting" onmouseup="MyF(this)" href="#">
+                <?xml version="1.0" encoding="UTF-8"?><svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4L18 10H10V18L4 24L10 30V38H18L24 44L30 38H38V30L44 24L38 18V10H30L24 4Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/><path d="M24 30C27.3137 30 30 27.3137 30 24C30 20.6863 27.3137 18 24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/></svg>
+                    系统设置
+                </a></li>
+        </ul>
+    </div>
+    <div class="leftI">
+        <img class="Cd" src="./BackDrop/UnknD.png">
+        <ul class="FunctionL">
+        <li class="love" onclick="Choose(this)" onmouseleave="MinT(this)" style="cursor: pointer;"> <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8C8.92487 8 4 12.9249 4 19C4 30 17 40 24 42.3262C31 40 44 30 44 19C44 12.9249 39.0751 8 33 8C29.2797 8 25.9907 9.8469 24 12.6738C22.0093 9.8469 18.7203 8 15 8Z" fill="none" stroke="#f3f3f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <ul class="PlayList">
+                
+            </ul>
+        </li>
+        <li class="FullM" onclick="Trans()"> <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 6H42V18" stroke="#f3f3f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 6H6V18" stroke="#f3f3f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 42H42V30" stroke="#f3f3f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 42H6V30" stroke="#f3f3f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 6L29 19" stroke="#f3f3f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 29L6 42" stroke="#f3f3f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+    </ul>
+    </div>
+ 
+    <div class="ControlUp">
+        <ul class="speed">
+            <li class="SS">0.5x</li>
+            <li class="NN Lactive">1.0x</li>
+            <li class="LF">1.5x</li>
+            <li class="FF">2.0x</li>
+            <li class="SF">3.0x</li>
+        </ul>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div class="Control">
+        <div class="upper">
+            <div class="List" onclick="Swap(this)">
+                <svg class="CycleO Show"  width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M43.8233 25.2305C43.7019 25.9889 43.5195 26.727 43.2814 27.4395C42.763 28.9914 41.9801 30.4222 40.9863 31.6785C38.4222 34.9201 34.454 37 30 37H16C9.39697 37 4 31.6785 4 25C4 18.3502 9.39624 13 16 13H44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 7L44 13L38 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 19V31" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 19L21 22L19.5 23.5" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="Random " width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40 33L44 37L40 41" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 7L44 11L40 15" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 11H37C29.8203 11 24 16.8203 24 24C24 31.1797 29.8203 37 37 37H44" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/><path d="M4 37H11C18.1797 37 24 31.1797 24 24C24 16.8203 18.1797 11 11 11H4" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/></svg>
+                <svg class="Cycle "width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M43.8233 25.2305C43.7019 25.9889 43.5195 26.727 43.2814 27.4395C42.763 28.9914 41.9801 30.4222 40.9863 31.6785C38.4222 34.9201 34.454 37 30 37H16C9.39697 37 4 31.6785 4 25C4 18.3502 9.39624 13 16 13H44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 7L44 13L38 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <svg onclick="Before()" class="Bc" viewBox="0 0 100 100" width="80" height="60">
+                <polygon class="BcA" stroke-linejoin="round" points="40,25 40,65 69,45" />
+                <polygon class="BcB" stroke-linejoin="round" points="70,25 70,65 99,45" />
+            </svg>
+            <div class="pd">
+                <svg class="Pause" viewBox="0 0 100 100" width="60" height="60">
+                    <rect class="PauseS" x="30" y="22" width="5" height="45" rx="2" ry="2" />
+                    <rect class="PauseS" x="60" y="22" width="5" height="45" rx="2" ry="2" />
+                </svg>
+                <svg class="Play" viewBox="0 0 100 100" width="60" height="60">
+                    <polygon class="PlayS" stroke-linejoin="round" points="40,25 40,65 69,45" />
+                </svg>
+            </div>
+            <svg onclick="Next()" class="Nxt" viewBox="0 0 100 100" width="80" height="60">
+                <polygon class="NxtSF" stroke-linejoin="round" points="40,25 40,65 69,45" />
+                <polygon class="NxtSB" stroke-linejoin="round" points="70,25 70,65 99,45" />
+            </svg>
+            <div class="Speed">  
+                <svg onclick="speed()" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M34.0234 6.68921C31.0764 4.97912 27.6525 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 20.3727 43.0344 16.9709 41.3461 14.0377" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M31.9498 16.0503C31.9498 16.0503 28.5621 25.0948 27.0001 26.6569C25.438 28.219 22.9053 28.219 21.3432 26.6569C19.7811 25.0948 19.7811 22.5621 21.3432 21C22.9053 19.4379 31.9498 16.0503 31.9498 16.0503Z" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/></svg>
+            </div>
+            <svg class="Visual" onclick="VisS(this)" width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 3.99976V43.9998" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/><path d="M34 11.9998V35.9998" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/><path d="M4 17.9998V29.9998" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/><path d="M44 17.9998V29.9998" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/><path d="M14 11.9998V35.9998" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/></svg>
+                   </div>
+        <div class="lower">
+            <div class="Plu">
+                +10s
+            </div>
+            <div class="ProgressB">
+                    <div class="progress" style="width: 0px;">
+                        <div class="handle"></div>
+                    </div>
+            </div>
+            <div class="Detail">00:00/00:00</div>
+        </div>
+    </div>
+  
+    <audio class="audio" ></audio>
+    <iframe src="./Lyric/FullScreen.html"  name="childPage" class="FullMode"></iframe>
+    <div class="BackV"><svg  onclick="BackV()"  width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 42L33 33M6 6L15 15L6 6Z" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42L15 33M42 6L33 15L42 6Z" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 29C26.7614 29 29 26.7614 29 24C29 21.2386 26.7614 19 24 19C21.2386 19 19 21.2386 19 24C19 26.7614 21.2386 29 24 29Z" fill="none" stroke="#f3f2f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <video class="video" webkit-playsinline></video>
+    <script src="./jsmediatags.min.js"></script>
+    <script src="HCScript.js"></script>
+</body>
+
+</html>

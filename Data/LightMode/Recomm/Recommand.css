@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+html{
+    height: 100vh;  
+}
+
+.shangg{
+    position: relative;  
+    margin-bottom: 200px; 
+}
+
+.shangg img {
+    width: 317px;
+    height: 317px;
+    margin-left: 110px;
+    border-radius: 30px;
+    margin-right: 50px;
+    margin-top: 25px;
+}
+
+.Rightt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: left;
+}
+.Rightt img {
+    transition: all 0.3s;
+
+}
+.Rightt img:hover {
+    transform: scale(1.05);
+
+}
+
+.Name2 {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    color:  rgba(229, 230, 229, 0.55);
+}
+
+.Name2 h2 {
+    max-width: 32vw;
+    font-size: 45px;
+    text-align: left;
+    margin: 0;
+}
+
+.Name2 h3 {
+    font-size: 35px;
+    margin-bottom: 36px;
+}
+
+.Name2 button {
+    padding: 6px 0;
+    width: 181px;
+    height: 40px;
+    border-radius: 12px;
+    background-color:  rgb(139, 141, 140);
+    border: none;
+    color:  rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.2s;
+}
+
+.Name2 button:hover {
+    scale: 1.1;
+}
+
+
+/* 响应式设计 */
+
+.Name2 {
+    margin-left: 0px;
+    text-align: center;
+}
+.xa p{
+    text-align: center;
+}
+ 
+.shangg{
+    height: fit-content;
+}
+.Rightt{
+
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    float: left;
+}
+.zt{
+    font-size: 45px;
+    color:  rgba(229, 230, 229, 0.55);
+}
+.btt{
+    color:  rgba(229, 230, 229, 0.55);
+    font-size: 60px;
+    margin-top: 20px;
+    margin-left: 29px;
+    margin-bottom: 10px;
+}
+.zt{
+ 
+    font-size: 29px;
+}
+.xa{
+    margin: 10px 105px 0 110px;
+
+    position: relative;  
+    left: 110px;   
+    top: 70px;    
+    width: calc(100% - 220px); 
+    margin: 180px 0;            
+    z-index: 100;
+}
+p{
+    text-indent: 1em;
+}
+.Rightt{
+    justify-self: center;
+    padding-top: 5%;
+
+}
+
+@media screen and (max-width: 768px) {
+    #cover-picture{
+        margin-left: 10%;
+    }
+    .Name2 button{
+        margin-left: 15%;
+    }
+    .Rightt{
+        display: flex;
+        padding-top: 0%;
+        justify-content: center;
+    }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

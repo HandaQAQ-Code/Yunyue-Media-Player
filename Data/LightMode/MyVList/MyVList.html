@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的列表</title>
+    <link rel="stylesheet" href="./MyVList.css">
+    <style>
+    
+            @font-face {
+                font-family: "Bits";
+                src: url("../Inter-Bold.otf");
+            }
+
+            * {
+                
+            }
+
+          body{
+                height: fit-content;
+                margin-bottom: 90px;
+                overflow-x: hidden;
+            }
+            ul{
+                height: fit-content;
+            }
+    </style>
+</head>
+<body>
+<div class="page main-menu active">
+    <div class="scrollcon">
+        <div class="scroll"></div>
+    </div>
+    <div class="zhengti">
+        <div class="ge-dan-container">
+            <div class="biao-ti">
+                <h2>我的列表</h2>
+            </div>
+            <div class="an-nu">
+                <div class="tab ben-di active" data-type="local">本地列表</div>
+                <button class="add-playlist-btn" >+</button>         
+            </div>
+        </div>
+        
+        <div class="playlist-container">
+            <div class="lie-biao" id="playlist-container">
+              <ul id="playlist-list"></ul>
+            </div>         
+          </div>
+    </div>
+    
+
+    <!-- 创建列表弹窗 -->
+    <div class="bian-ji create-playlist-dialog">
+        <div class="close-btnn">×</div>
+        <div class="sh">
+            <div class="xiu-gai">
+                <div class="form-item">
+                    <p class="pz">创建新列表</p>
+                    <div class="form-row">
+                        
+                        <label class="la">名称</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="new-playlist-name" class="iut" placeholder="最多15个字">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="metadata-btn-container">
+            <button class="metadata-btn confirm-create" onclick="Submit()">创建</button>
+        </div>
+    </div>
+
+    <!-- 重命名弹窗 -->
+    <div class="bian-ji rename-dialog">
+        <div class="close-btnn">×</div>
+        <div class="sh">
+            <div class="xiu-gai">
+                <div class="form-item">
+                    <p class="pz">重命名</p>
+                    <div class="form-row">
+                        
+                        <div class="input-wrapper">
+                            <input type="text" id="rename-input" class="iut" placeholder="最多15个字">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="metadata-btn-container">
+            <button class="metadata-btn confirm-rename" >确认</button>
+        </div>
+    </div>
+</div>
+
+<!-- 修改后的播放列表页面 -->
+<div class="page playlist-page" >
+    <button class="back-btn">← 返回</button>
+    <div class="cflb">
+        <div class="shangg">
+            <div class="Rightt">
+            <img id="album-cover"  src="./Journey.png" alt="专辑封面">
+            <div  class="Name2 ">
+                <h2 id="playlist-title">播放列表1</h2>
+                <h3 id="playlist-count" class="CntL">共10首</h3>
+                <button onclick="PlayAll(this)" style="cursor: pointer;">播放全部</button>
+            </div>
+            </div>
+        </div>
+        <div class="ia" >
+            <ul class="byy" id="playlist-songs" style="display: block;">
+                <!-- 歌曲列表将通过JS动态加载 -->
+            </ul>
+        </div>
+    </div>
+</div>
+    <script src="./MyVList.js"></script>
+
+</body>
+</html>

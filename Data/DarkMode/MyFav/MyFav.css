@@ -1,0 +1,319 @@
+.zhengti {
+    position: relative;
+}
+*{
+    transition: all 0.3s;
+}
+body{
+        
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+}
+
+.ia{
+    display: block;
+    margin: 0 110px; 
+    justify-content: center;
+}
+.HideL{
+    height: 0px;
+    opacity: 0;
+}
+.shangg{
+    margin-bottom: 50px;
+    height: fit-content;
+}
+
+.Rightt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: left;
+}
+
+.shangg img {
+    width: 317px;
+    height: 317px;
+    margin-left: 110px;
+    border-radius: 30px;
+    margin-right: 50px;
+    margin-top: 25px;
+    transition: all 0.2s;
+}
+.shangg img:hover{
+    transform: scale(1.05);
+}
+.cflb{
+    display: flex;
+    flex-direction: column;
+    
+}
+.Rightt {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: fit-content;
+    flex-wrap: wrap;
+}
+
+.Name2 {
+    margin: 10px;
+    height: 200px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    color: rgba(229, 230, 229, 0.55);
+}
+
+.Name2 h2 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.Name2 h3 {
+    font-size: 35px;
+    margin-bottom: 36px;
+}
+
+.Name2 button {
+    padding: 6px 0;
+    width: 181px;
+    height: 40px;
+    border-radius: 12px;
+    background-color:  rgba(229, 230, 229, 0.55);
+    border: none;
+    color:  rgba(255, 255, 255, 0.53);
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.2s;
+}
+
+.Name2 button:hover {
+    background-color: rgba(229, 230, 229, 0.55);
+    scale: 1.1;
+}
+
+ 
+ 
+/* 新增播放列表歌曲样式 */
+.byy{
+    padding: 0;
+}
+.byy li {
+    position: relative;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0 40px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.byy li:hover{
+
+    background: rgba(180, 180, 180, 0.555);  
+    transition: all 0.5s;
+}
+
+.byy li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(229, 230, 229, 0.55);
+    gap: 15px;
+    width: 100%;
+}
+
+
+
+.byy .album-cover {
+    width: 75px;
+    height: 75px;
+    border-radius: 13px;
+    object-fit: cover;
+}
+
+
+
+.byy .song-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding-right: 20px;
+    opacity: 0;
+}
+
+
+.byy li.swiped{
+    transform: translateX(-92px);
+}
+
+
+/* 标签样式 */
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;  
+    padding: 1px 6px;  
+    margin: 6px;    
+    background-color: rgba(197, 197, 197, 0.78);
+    color: rgb(232, 232, 232);
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+/* 调整信息布局 */
+.song-info {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    margin-left: 15px;
+}
+
+
+/* 新增歌曲标题滚动样式 */
+.byy .song-title {
+    font-size: 25px;
+    margin-bottom: 5px;
+    display: inline-block;
+    max-width: 600px;
+    white-space: nowrap;
+    text-overflow: clip;
+    transition: 0.3s;
+}
+
+.byy .song-title[data-overflow="true"] {
+    animation: scroll 9s linear infinite;
+    text-overflow: clip;
+}
+
+
+.song-artist {
+    font-size: 20px;
+
+}
+
+.song-duration {
+    margin-left: auto;
+    padding-left: 20px;
+    font-size: 20px;
+
+}
+   
+/* 歌曲列表特有样式 */
+.song-cover {
+    width: 90px;
+    height: 90px;
+    border-radius: 13px;
+    object-fit: cover;
+}
+
+.delete-song-btn img {
+    width: 80px;
+    height: 80px;
+}
+
+.an-nu {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 1.5rem;
+    margin-left: 110px;
+}
+
+.tab {
+    padding: 0.4rem 1.7rem;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.14);
+    color: rgba(229, 230, 229, 0.55);
+    border: 2px solid transparent;
+}
+
+.tab.active {
+    background: rgba(255, 255, 255, 0.6);
+    color: rgba(229, 230, 229, 0.55);
+    transform: translateY(-3px);
+    box-shadow: 0 2px 13px #c0c0c0;
+}
+
+.tab:not(.active):hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 2px 13px rgba(0, 0, 0, 0.08);
+}
+
+
+li.swiped {
+    transform: translateX(-160px);
+}
+li.swiped .song-actions {
+    opacity: 1;
+}
+.byy li.swiped {
+    transform: translateX(-92px);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+  
+  /* 统一按钮尺寸 */
+.delete-song-btn img {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+
+
+.action-btn {
+    background: 0;
+    border: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .ia{
+        display: block;
+        margin: 0px; 
+        margin-left: -2px;
+        margin-right: 20px;
+        justify-content: center;
+    }
+    .byy{
+        width: 100%;
+    }
+    .byy li{
+        padding: 0px;
+    }
+    .song-cover{
+        display: none;
+    }
+    #playlist-count{
+        text-align: center;
+    }
+    .Rightt{
+    justify-content: center;}
+    .shangg img {
+       
+        margin-left: 32px;
+       margin-right: 20px;
+    }
+    .an-nu {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+}

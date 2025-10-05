@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/Web">
+        <file>Main/HCScript.js</file>
+        <file>Main/HIndexM.html</file>
+        <file>Main/BackDrop/BluY.png</file>
+        <file>Main/BackDrop/Default.jpg</file>
+        <file>Main/BackDrop/GR.png</file>
+        <file>Main/BackDrop/GreenB.png</file>
+        <file>Main/BackDrop/PinkG.png</file>
+        <file>Main/BackDrop/PurpleB.png</file>
+        <file>Main/BackDrop/RainboR.png</file>
+        <file>Main/BackDrop/SilverG.png</file>
+        <file>Main/BackDrop/YellowO.png</file>
+        <file>Main/qwebchannel.js</file>
+    </qresource>
+</RCC>

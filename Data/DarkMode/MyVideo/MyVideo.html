@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./MyVideo.css">
+    <style>
+       body{
+            margin-bottom: 90px;
+            overflow-x: hidden;
+        }
+
+        @font-face {
+            font-family: "Bits";
+            src: url("../Inter-Bold.otf");
+        }
+
+        * {
+            font-family: "Bits", serif;
+        }
+
+    </style>
+    <script>
+        const ws = new WebSocket('ws://localhost:9005'); // 与Qt服务器端口一致
+        ws.onopen = () => {
+            log('Connected to server List');
+        };
+        ws.onclose = () => {
+            log('Connection closed');
+        };
+        function log(text) {
+            console.log(text);
+        }
+    </script>
+</head>
+<body>
+    
+    <canvas id="coverCanvas" width="800" height="800" style="position:fixed;opacity:0;pointer-events: none;"></canvas>
+
+    <div class="scrollcon">
+        <div class="scroll"></div>
+    </div>
+    <div class="zhengti">
+        <div class="ge-dan-container" >
+            <div class="biao-ti">
+                <h2>我的视频</h2>
+            </div>
+        
+            <div class="an-nu">
+                <div  class="tab ben-di active" data-type="local">本地列表</div>
+            </div>
+
+            <div class="filter-sort-container1">
+                <div class="lab1" style="display: flex;">
+                <span class="xp">筛选：</span>
+                    <div class="select-box" style="margin-right: 10px;">
+                        <input type="text" class="select-input" value="视频名" readonly />
+                        <ul class="options-box hide" >
+                          <li value="21" class="xz">视频名</li>
+                          <li value="23" class="xz">标签</li>
+                        </ul>
+                    </div>                  
+                    <input type="text" name="filter_value" placeholder="输入筛选值" class="fc Fil">
+                </div>
+                <div class="lab1" style="display: flex;">
+                    <span class="xp">排序：</span>
+                    <div class="select-box">
+                        <input type="text" class="select-input" value="首字母" readonly />
+                        <ul class="options-box hide" >
+                            <li value="12" class="xz">时长</li>
+                            <li value="13" class="xz">首字母</li>
+                        </ul>
+                    </div>
+                <div class="sort-select-wrapper">
+                    <div class="select-box">
+                        <input type="text" class="select-input" value="升序" readonly />
+                        <ul class="options-box hide" >
+                          <li value="1" class="xz">升序</li>
+                          <li value="-1" class="xz">降序</li>                                                 
+                        </ul>
+                    </div>
+                </div>
+                 
+                </div>
+              </div>
+        </div>
+        
+        <div class="lie-biao" id="playlist-container">
+         
+            <ul id="local-playlist" class="Lc"></ul>
+
+            <!-- 在线列表项将在这里显示 -->
+            <ul id="online-playlist"></ul>
+        </div>
+    </div>
+   
+
+
+
+
+    <div class="bian-ji hide">
+        <div class="close-btnn">×</div>
+        <div class="sh">
+            <!-- 专辑封面 -->
+            <div class="zhao-pian" id="album-cover-local">
+                <div class="mask">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2">
+                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                    </svg>
+                </div>
+                <input type="file" id="file-input-local" accept="image/*" class="iutt">
+                <img class="Dea">
+            </div>
+
+            <!-- 信息编辑区 -->
+            <div class="xiu-gai">
+                <!-- 视频名 -->
+                <div class="form-item">
+                    <div class="form-row">
+                        <label class="la">视频名</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="song-name" disabled  class="iut">
+                            <svg class="edit-icon" width="18" height="18"  fill="white" stroke="white" viewBox="0 0 24 24">
+                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+  
+
+                <!-- 标签 -->
+                <div class="form-item">
+                    <div class="form-row">
+                        <label class="la">标签</label>
+                        <div class="input-wrapper">
+                            <div class="tag-container">
+                                <!-- <div class="tag">
+
+                                    <span class="delete-btn">×</span>
+                                </div> -->
+                                <button class="add-btn">+</button>
+                            </div>
+                           
+                        </div>
+                        <div class="tag-form hideS">
+                            <div class="close-btn">×</div>
+                            <p>请输入标签：</p>
+                            <div class="container1">
+                                <input type="text" class="tag-input iut" placeholder="输入标签(3个字)" maxlength="3">
+                                <button class="confirm-btn">✔</button>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 本地地址 -->
+        <div class="di-zhi">
+            <div class="metadata-btn-container">
+                <button class="metadata-btn Loc" onclick="submitData()">保存元数据</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    
+    <audio id="music-player" controls style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: none;"></audio>
+
+  
+
+
+
+
+
+<script>
+const addBtn = document.querySelector('.add-btn');
+var tagForm = document.querySelector('.tag-form');
+const confirmBtn = document.querySelector('.confirm-btn');
+const tagInput = document.querySelector('.tag-input');
+const tagContainer = document.querySelector('.tag-container');
+
+// 绑定删除事件的通用函数
+function bindDeleteEvent() {
+    document.querySelectorAll('.delete-btn').forEach(deleteBtn => {
+    deleteBtn.addEventListener('click', function() {
+        // 仅删除当前标签，保留加号按钮
+        this.parentElement.remove(); // 只删除标签本身
+        checkTagCount(); // 必须调用检测
+});
+});
+}
+bindDeleteEvent(); // 初始化绑定
+
+// 检查标签数量，控制加号显示
+function checkTagCount() {
+    const tags = document.querySelectorAll('.tag-container .tag:not(.add-btn)'); 
+    const addBtn = document.querySelector('.add-btn');
+    // 动态控制显示
+    addBtn.style.display = tags.length < 2 ? 'block' : 'none';
+}
+checkTagCount(); 
+
+// 显示表单
+addBtn.addEventListener('click', () => {
+    tagForm.classList.remove('hideS');
+    tagInput.value = '';
+});
+
+// 确认添加标签
+confirmBtn.addEventListener('click', () => {
+    const tagText = tagInput.value.trim();
+    if (tagText.length > 3) {
+        return;
+    }
+    if (tagText) {
+        const newTag = document.createElement('div');
+        newTag.className = 'tag';
+        newTag.innerHTML = `${tagText}<span class="delete-btn">×</span>`;
+        tagContainer.insertBefore(newTag, addBtn);
+        tagInput.value = '';
+        tagForm.classList.add('hideS');
+        bindDeleteEvent(); // 新增标签后重新绑定事件
+        checkTagCount(); 
+    }
+});
+
+// 按回车确认
+tagInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        const tagText = tagInput.value.trim();
+        if (tagText.length > 5) {
+            alert('标签最多输入5个字');
+            return;
+        }
+        confirmBtn.click();
+    }
+});
+
+
+document.querySelector('.close-btn').addEventListener('click', () => {
+    document.querySelector('.tag-form').classList.add('hideS');
+});
+
+// 也可以添加ESC键关闭功能
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape') {
+    document.querySelector('.tag-form').classList.add('hide');
+ 
+}
+});
+
+document.querySelector('.close-btnn').addEventListener('click', () => {
+    document.querySelector('.bian-ji').classList.add('hide');
+});
+
+// 也可以添加ESC键关闭功能
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape') {
+    document.querySelector('.bian-ji').classList.add('hide');
+}
+});
+</script>
+
+
+
+
+
+<script>
+    // 获取元数据按钮功能
+    document.querySelector('.metadata-btn').addEventListener('click', () => {
+        document.querySelector('.bian-ji').classList.add('hide');
+        document.querySelector('.editor-container').classList.remove('hide');
+    });
+    
+    // 弹窗关闭功能
+    document.querySelector('.close-btnn1').addEventListener('click', () => {
+        document.querySelector('.editor-container').classList.remove('hide');
+        document.querySelector('.bian-ji').classList.add('hide');
+    });
+    
+    // ESC键关闭功能
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelector('.editor-container').classList.add('hide');
+            document.querySelector('.bian-ji').style.classList.add('hide');
+        }
+    });
+</script>
+
+
+
+
+
+
+<script>
+    
+            
+    // 在原有script中添加
+    document.querySelector('.close-btnn1').addEventListener('click', () => {
+        document.querySelector('.editor-container').classList.add('hide');
+    });
+            
+    // 也可以添加ESC键关闭功能
+    document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelector('.editor-container').classList.add('hide');
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="./MyVideo.js"></script>
+
+
+<script>
+window.onload = function () {
+    // 通用class操作函数保持不变...
+    // 判断是否有某个class
+function hasClass(ele, cls) {
+  return ele.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
+}
+// //为指定的dom元素添加样式
+function addClass(ele, cls) {
+  if (!hasClass(ele, cls)) ele.className += " " + cls;
+}
+// //删除指定dom元素的样式
+function removeClass(ele, cls) {
+  if (hasClass(ele, cls)) {
+    var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+    ele.className = ele.className.replace(reg, " ");
+  }
+}
+
+    // 获取所有select-input元素
+    const selectInputs = document.querySelectorAll('.select-input');
+    const optionsBoxes = document.querySelectorAll('.options-box');
+
+    // 为每个下拉框绑定点击事件
+    selectInputs.forEach((selectInput, index) => {
+        selectInput.onclick = function () {
+            const optionsBox = optionsBoxes[index];
+            if (hasClass(optionsBox, 'hide')) {
+                removeClass(optionsBox, 'hide');
+                addClass(selectInput, 'isActive');
+                // 高亮已选项逻辑
+                Array.from(optionsBox.children).forEach(li => {
+                    li.className = li.innerHTML === selectInput.value ? 'xz active' : 'xz';
+                });
+            } else {
+                addClass(optionsBox, 'hide');
+                removeClass(selectInput, 'isActive');
+            }
+        };
+    });
+    var U=1;
+    var T=13;
+    // 使用事件委托处理所有options-box的点击
+    document.addEventListener('click', function (e) {
+        const target = e.target;
+        if (target.classList.contains('xz')) { // 点击的是选项
+            const optionsBox = target.closest('.options-box');
+            const selectInput = optionsBox.previousElementSibling; // 假设input和ul是相邻兄弟元素
+            selectInput.value = target.innerHTML;
+            if(target.value<10){
+                U=target.value;
+            }
+            if(target.value>10 && target.value<20){
+                T=target.value;
+            }
+            if(target.value>20){
+                type=target.value;
+            }
+            resort(T,U);
+            addClass(optionsBox, 'hide');
+            removeClass(selectInput, 'isActive');
+        }
+    });
+
+    // 鼠标悬停效果（通用化）
+    document.addEventListener('mouseover', function (e) {
+        if (e.target.classList.contains('xz')) {
+            const li = e.target;
+            const selectInput = li.closest('.options-box').previousElementSibling;
+            if (li.innerHTML !== selectInput.value) {
+                addClass(li, 'active');
+            }
+        }
+    });
+
+    document.addEventListener('mouseout', function (e) {
+        if (e.target.classList.contains('xz')) {
+            const li = e.target;
+            const selectInput = li.closest('.options-box').previousElementSibling;
+            if (li.innerHTML !== selectInput.value) {
+                removeClass(li, 'active');
+            }
+        }
+    });
+}
+
+const shapeDrawers = {
+    // 同心圆（增加旋转角度）
+    concentricCircles(ctx, colors) {
+        ctx.save();
+        ctx.translate(400, 400);
+        ctx.rotate((Math.random() * 30 - 15) * Math.PI / 180); // ±15度随机旋转
+        
+        for(let i = 0; i < 4; i++) {
+            ctx.beginPath();
+            ctx.arc(0, 0, 200 - i*40, 0, Math.PI*2);
+            ctx.strokeStyle = colors[i % colors.length];
+            ctx.lineWidth = 8;
+            ctx.stroke();
+        }
+        ctx.restore();
+    },
+
+    // 旋转三角形（增加动态旋转）
+    rotatingTriangles(ctx, colors) {
+        ctx.save();
+        ctx.translate(400, 400);
+        const baseRotation = Math.random() * Math.PI * 2; // 随机初始角度
+        
+        for(let i = 0; i < 3; i++) {
+            ctx.rotate(baseRotation + Math.PI/6 + Math.random() * 0.2); // 基础角度+随机偏移
+            ctx.beginPath();
+            ctx.moveTo(0, -150);
+            ctx.lineTo(100, 150);
+            ctx.lineTo(-100, 150);
+            ctx.closePath();
+            ctx.fillStyle = colors[i % colors.length] + '60';
+            ctx.fill();
+        }
+        ctx.restore();
+    },
+
+    // 随机多边形（增强角度随机性）
+    randomPolygon(ctx, colors) {
+        const sides = 3 + Math.floor(Math.random() * 5);
+        const radius = 180;
+        ctx.save();
+        ctx.translate(400, 400);
+        
+        // 双重随机旋转
+        ctx.rotate(Math.random() * Math.PI); // 整体旋转
+        const angleVariation = Math.PI * 0.1; // 允许10%的角度变化
+        
+        ctx.beginPath();
+        for(let i = 0; i < sides; i++) {
+            let angle = (i * 2 * Math.PI) / sides;
+            angle += (Math.random() - 0.5) * angleVariation; // 每个顶点角度微调
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
+            if(i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.fillStyle = colors[Math.floor(Math.random()*colors.length)] + '40';
+        ctx.fill();
+        ctx.restore();
+    },
+
+    // 波形矩形（增加随机旋转）
+    waveRect(ctx, colors) {
+        ctx.save();
+        ctx.translate(400, 400);
+        ctx.rotate(Math.random() * Math.PI ); // 0-45度随机旋转
+        ctx.translate(-200, -200);
+        
+        for(let i = 0; i < Math.floor(Math.random()*4); i++) {
+            ctx.beginPath();
+            const phase = Math.random() * Math.PI;
+            for(let x = 0; x < 400; x += 10) {
+                const y = Math.sin(x * 0.05+ phase) * 20;
+                ctx.lineTo(x, y + i*100);
+            }
+            ctx.strokeStyle = colors[i % colors.length];
+            ctx.lineWidth = 20;
+            ctx.stroke();
+        }
+        ctx.restore();
+    },
+
+    // 螺旋线（随机旋转和圈数）
+    spiral(ctx, colors) {
+        ctx.save();
+        ctx.translate(400, 400);
+        ctx.rotate(Math.random() * Math.PI); // 随机初始角度
+        ctx.beginPath();
+        
+        const turns = 5 + Math.random() * 3; // 5-8圈
+        let radius = 0;
+        for(let angle = 0; angle < Math.PI * 2 * turns; angle += 0.1) {
+            radius += 0.5 + Math.random() * 0.3; // 随机半径增长
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
+            if(angle === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = colors[Math.floor(Math.random()*colors.length)];
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.restore();
+    }
+};
+
+        // 颜色生成函数（保持不变）
+        function stringToHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            return hash;
+        }
+
+        function hslToHex(h, s, l) {
+            h /= 360; s /= 100; l /= 100;
+            let c = (1 - Math.abs(2 * l - 1)) * s;
+            let x = c * (1 - Math.abs((h * 6) % 2 - 1));
+            let m = l - c / 2;
+            let r, g, b;
+            const hueSegment = Math.floor(h * 6);
+            switch(hueSegment) {
+                case 0: [r, g, b] = [c, x, 0]; break;
+                case 1: [r, g, b] = [x, c, 0]; break;
+                case 2: [r, g, b] = [0, c, x]; break;
+                case 3: [r, g, b] = [0, x, c]; break;
+                case 4: [r, g, b] = [x, 0, c]; break;
+                case 5: [r, g, b] = [c, 0, x]; break;
+            }
+            const toHex = (n) => Math.round((n + m) * 255).toString(16).padStart(2, '0');
+            return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+        }
+
+        function generateMusicCoverColors(musicName) {
+            const hash = stringToHash(musicName);
+            const baseHue = Math.abs(hash % 360);
+            const variations = [
+                { h: 0,   s: 70, l: 50 }, { h: 30, s: 60, l: 60 },
+                { h: -30, s: 80, l: 40 }, { h: 150, s: 50, l: 55 },
+                { h: 210, s: 40, l: 70 }
+            ];
+            return variations.map(v => hslToHex(
+                (baseHue + v.h + 360) % 360, v.s, v.l
+            ));
+        }
+
+        // 修改后的几何图形绘制函数库
+
+        // 随机选择并绘制几何图形
+        function drawRandomShapes(ctx, colors) {
+            // 获取所有形状绘制方法
+            const shapes = Object.values(shapeDrawers);
+            
+            // 随机选择2-3种形状组合
+            const count = 1 + Math.floor(Math.random() * 2);
+            for(let i = 0; i < count; i++) {
+                const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+                ctx.globalAlpha = Math.random();
+                randomShape(ctx, colors);
+            }
+        }
+
+        // 主绘制函数
+        function drawCover() {
+            const canvas = document.getElementById('coverCanvas');
+            const ctx = canvas.getContext('2d');
+            const musicName = document.querySelector('#song-name').value;
+            const colors = generateMusicCoverColors(musicName);
+            
+            // 高清适配（保持不变）
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = 800 * dpr;
+            canvas.height = 800 * dpr;
+            ctx.scale(dpr, dpr);
+            ctx.clearRect(0, 0, 800, 800);
+
+            // 背景渐变（保持不变）
+            const gradient = ctx.createLinearGradient(0, 0, 800, 800);
+            gradient.addColorStop(0, colors[0]);
+            gradient.addColorStop(1, colors[1]);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 800, 800);
+
+            // 绘制随机几何图形
+            drawRandomShapes(ctx, colors);
+
+            // 波形和文字（保持不变）
+            // 随机决定是否绘制文字
+            if (Math.random() > 0.5) {
+                drawWave(ctx, colors);
+            }
+            if (Math.random() > 0.5) {
+            drawParticles(ctx, colors);}
+            const dataURL = canvas.toDataURL();
+            const img = new Image();
+            img.src = dataURL;
+            base64Data =dataURL;
+            console.log(dataURL);
+            img.style.width = '100%';
+            const editorCover = document.getElementById('album-cover-editor');
+            // 清除旧图片（保留mask层）
+            editorCover.querySelector('img')?.remove();
+            // 插入到mask层之前
+            editorCover.insertBefore(img, editorCover.querySelector('.mask'));
+        }
+
+        // 封装的波形绘制函数
+        function drawWave(ctx, colors) {
+            ctx.beginPath();
+            for(let i = 0; i < 800; i += 20) {
+                ctx.moveTo(i, 400);
+                ctx.quadraticCurveTo(i + 10, 400 + Math.sin(i * 0.05) * Math.random() * 400, i + 20, 400);
+            }
+            ctx.strokeStyle = colors[Math.floor(Math.random() * colors.length)];
+            ctx.globalAlpha = Math.random();
+            ctx.lineWidth = 10;
+            ctx.stroke();
+        }
+
+
+        // 封装的粒子绘制函数
+        function drawParticles(ctx, colors) {
+            for(let i = 0; i < 200; i++) {
+                ctx.beginPath();
+                ctx.globalAlpha = Math.random();
+                ctx.arc(Math.random() * 800, Math.random() * 800, Math.random() * 10, 0, Math.PI * 20);
+                ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+                ctx.fill();
+            }
+        }
+
+ 
+</script>  
+
+</body>
+</html>

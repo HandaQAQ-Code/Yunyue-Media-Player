@@ -1,0 +1,1793 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}html{
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s;
+}
+*{
+    -webkit-user-drag: none;
+    transition: all 0.4s;
+}
+.cover,.cover2,.alertBox{
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 2000;
+    width: 100vw;
+    border-top: solid 1px rgba(255, 255, 255, 0.205);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.402);
+    height: 100vh;
+    opacity: 0;
+    border: 0px;
+    margin: 0px;
+    background-color: rgba(77, 77, 77, 0.5);
+    backdrop-filter: blur(20px) saturate(80%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    pointer-events: none;
+    justify-content: center;
+    transition: all 0.5s;
+ 
+}
+ 
+.cover svg,.cover2 svg,.alertBox svg{
+    padding: 20px;
+    height: 100px;
+    width: 100px;
+}
+.cover .Inform h1,.cover2 .Inform h1,.alertBox h1{
+    color: white;
+
+}
+.alertBox .Inform{
+    margin-top: 50px;
+}
+.alertBox button{
+    width: 160px;
+    height: 40px;
+    color: white;
+    background-color: #2e2e2e8e;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.alertBox button:hover{
+
+    color: white;
+    background-color: #7474748e;
+    
+}
+button:active{
+    scale: 0.85;
+}
+@keyframes Rote{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.BG{
+    border-radius: 0px;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: brightness(0.4);
+    height: 102vh;
+    width: 102vw;
+    background-image: url("./BackDrop/Default.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.FullMode{
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.402);
+    border-top: solid 1px rgba(255, 255, 255, 0.205);
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    z-index: 698;
+    position: fixed;
+    top: 0px;
+    opacity: 0;
+    left: 0px;
+    transform: translateY(100vh);
+    transition: all 1s;
+}
+
+/*Main Frame*/
+.customM{
+    padding: 0px;
+    border: solid 0.02px rgba(255, 255, 255, 0.041);
+    background-color: #d4d4d45d;
+    backdrop-filter: blur(1px) saturate(120%);
+    z-index: 0;
+    position: fixed;
+    border-radius: 30px;
+    top:71px;
+    left:230px;
+    width: calc(100% - 250px);
+    height: calc(100vh - 200px);
+    transition: all 0.5s;
+    overflow: hidden;
+}
+.MainShow{
+    border: solid 0.02px rgba(255, 255, 255, 0.041);
+    z-index: 0;
+    position: fixed;
+    border-radius: 30px;
+    width: calc(102% + 10px);
+    height: calc(100vh - 200px);
+    box-shadow: 0px 0px 50px #0000006e;
+    transition: all 0.1s;
+}
+.customM:hover{
+    backdrop-filter: blur(40px) saturate(120%);
+}
+.MusicVis{
+    position: fixed;
+    bottom:130px;
+    left:230px;
+    height: 70vh;
+    border-radius: 20px;
+    width: calc(100% - 250px);
+}
+.TransPort{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5699;
+    background-color: rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    transition: all 1s;
+    opacity: 1;
+    pointer-events: none;
+}
+body,html{
+    user-select: none;
+}
+    .TripleB{
+        position: fixed;
+        right: 0px;
+        width: 120px;
+        height: 40px;
+        display: inline-flex;
+        top:10px;
+        
+        background-color: rgba(250, 250, 250, 0.432);
+        border-radius: 10px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+        backdrop-filter: blur(10px);
+        display: inline-flex;   
+        z-index: 901;
+        transition: all 0.4s;
+    }
+    .TripleB svg{
+
+        cursor: pointer;
+        margin: 5px;
+        opacity: 0.5;
+        transition: all 0.4s;
+    }
+    .TripleB svg:hover{
+        transition: all 0.4s;
+        scale: 1.1;
+        opacity: 1;
+    }
+    #All{
+        scale: 0.7;
+    }
+    #All:hover{
+        scale: 0.8;
+    }
+.SearchB{
+ 
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    position: fixed;
+    z-index: 698;
+    top:10px;
+    left: 205px;
+    transition: all 0.4s;
+
+}
+.Search{
+    
+    outline: none;
+    backdrop-filter: blur(6px);
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(190, 190, 190, 0.269);
+    border-radius: 10px;
+    border: solid 1px rgba(255, 255, 255, 0.082);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 0.4s;
+    font-size: 20px;
+    left: 300px;
+    top: 0px;
+    width: 0px;
+    height: 40px;
+    display: flex;
+    padding-left: 45px;
+    padding-bottom: 2px;
+    flex-direction: row;
+    z-index: 2500;
+}
+.Search:hover{
+    background-color: rgba(135, 135, 135, 0.269);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.116);
+}
+.searchBar{
+    display: inline-flex;
+    z-index: 900;
+    transition: all 0.4s;
+}
+.searchBar svg{
+    position:relative;
+    top: 9px;
+    cursor: pointer;
+    left: 40px;
+    scale: 0.8;
+    z-index: 2900;
+    opacity: 50%;
+    transition: all 0.4s;
+}
+.SearchHistory{
+    position: fixed;
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(0, 0, 0, 0.269);
+    border-radius: 10px;
+    border: solid 1px rgba(255, 255, 255, 0.082);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 0.4s;
+    font-size: 20px;
+    top: 80px;
+    left: 10vw;
+    height: 40vh;
+    width: 80vw;
+    z-index: 1500;
+    overflow: hidden;
+}
+.HotBoard{
+    position: fixed;
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(0, 0, 0, 0.269);
+    border-radius: 10px;
+    border: solid 1px rgba(255, 255, 255, 0.082);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 0.4s;
+    font-size: 20px;
+    top: 50vh;
+    left: 10vw;
+    height: 45vh;
+    width: 80vw;
+    z-index: 1500;
+    padding: 10px;
+    overflow: hidden;
+}
+.TripleL{
+    
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+}
+.HotBoard h1{
+    position: relative;
+    top: -10px;
+    left: 20px;
+}
+.HotBoard:hover{
+    background-color: #353535c7;   
+}
+.HotBoard div{
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.HotBoard div ol li{
+    background-color: #1d1d1dc7;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 5px;
+    width: 85%;
+    height: 100%;
+}
+.HotBoard div ol li:hover{
+    background-color: #525252c7;
+}
+.HotHide{
+    opacity: 0;
+    pointer-events: none;
+}
+.MyPlayList{
+ 
+    position: fixed;
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(0, 0, 0, 0.269);
+    border-radius: 10px;
+    border: solid 1px rgba(255, 255, 255, 0.082);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 0.4s;
+    font-size: 20px;
+    top: 80px;
+    left: 10vw;
+    height: 86vh;
+    line-height: 90px;
+    width: 80vw;
+    z-index: 1500;
+    padding: 10px;
+    overflow: hidden;
+}
+.MyPlayList h1{
+position: relative;
+top: -30px;
+left: 50px;
+}
+.NextPl {
+    position: relative;
+    top:-50px;
+    width: 100%;
+    height: 60%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.SongLis{
+    
+    cursor: pointer;
+    margin: 10px;
+    list-style: none;
+    border-radius: 15px;
+    font-weight: bold;
+    height: 90px;
+    width: 90%;
+    font-size: 20px;
+    margin-top: 15px;
+    padding-left: 6px;
+    background-color: #4d4d4d54;
+    border: solid 1px rgba(156, 156, 156, 0.116);
+}
+.TOTHis{
+    cursor: pointer;
+    width: 250px;
+    padding: 5px;
+    overflow: hidden;
+    line-height: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    top: 65vh;
+    right: 15vw;
+    background-color: #413d3d6e;
+}
+.TOTHis:hover{
+    background-color: #cacacac7;
+}
+.MyPlayList:hover{
+    background-color: #2e2e2ec7;
+}
+.Songact{
+    color: #161616d8;
+    background-color: #b1b1b1c7;
+}
+.NextPl li:hover{
+    background-color: #8d8d8dc7;
+}
+.SearchHistory:hover{
+    background-color: #353535c7;
+}
+.SearchHistory h1{
+    position: relative;
+    top: -10px;
+    left: 20px;
+}
+.collect{
+    height: 100%;
+    width: 101%;
+    position: relative;
+    top: -30px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: scroll;
+}
+.tgs{
+    cursor: pointer;
+    background-color: rgba(29, 29, 29, 0.402);
+    border: solid 1px rgba(156, 156, 156, 0.116);
+    padding:10px;
+    margin: 10px;
+    padding-top: 5px;
+    height: 20px;
+    border-radius: 10px;
+}
+.tgs:hover{
+    background-color: rgba(160, 160, 160, 0.269);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.116)
+}
+.Back{
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(0, 0, 0, 0.269);
+    border-radius: 10px;
+    width:42px;
+    height: 42px;
+    border: solid 1px rgba(255, 255, 255, 0.144);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    backdrop-filter: blur(6px);
+    position: fixed;
+    padding:0px;
+    left: 95vw;
+    cursor: pointer;
+    opacity: 0;
+    display: flex;
+    transition: all 0.4s;
+}
+.Back:hover{
+    transition: all 0.4s;
+    background-color: rgba(135, 135, 135, 0.269);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.116);
+
+}
+.Back svg{
+    scale: 0.8;
+    opacity: 55%;
+    padding: 7px;
+    rotate: 45deg;
+    justify-self: center;
+    transition: all 0.4s;
+}
+.Back:hover svg{
+    rotate: 0deg;
+    transition: all 0.4s;
+}
+.Filter{
+    overflow: hidden;
+    display: inline-flex;
+    justify-content: space-between;
+    position: relative;
+    backdrop-filter: blur(6px);
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(0, 0, 0, 0.269);
+    border-radius: 10px;
+    width:120px;
+    top: 0px;
+    left: 20px;
+    height: 40px;
+    z-index: 900;
+    opacity: 0;
+    border: solid 1px rgba(255, 255, 255, 0.205);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 1s;
+}
+.a3{
+    opacity: 0;
+}
+.Filter svg{
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 7px;
+    z-index: 900;
+    opacity: 50%;
+    transition: all 0.4s;
+}
+.Filter:hover{
+    transition: all 0.4s;
+    background-color: rgba(135, 135, 135, 0.269);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.116);
+}
+.option{
+    top: 2px;
+    left: 3px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 85px;
+    transition: all 0.4s;
+}
+.option a{
+    cursor: pointer;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    border-radius: 10px;
+    transition:  all 0.4s;
+}
+.option a:hover{
+    transition:  all 0.4s;
+    background-color: rgba(81, 81, 81, 0.502);
+}
+.File{
+    background-color: transparent;
+    border: none;
+    position: fixed;
+    width: 0px;
+    height: 0px;
+    border-radius: 2000px;
+    top: -100vh;
+    left: -50vw;
+    z-index: 700;
+    transition: all 0.8s;
+}
+ 
+ 
+.SearchB svg:hover ~ .Search{
+    background-color: rgba(135, 135, 135, 0.269);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.116);
+}
+ .Side{
+    top: 10px;
+    backdrop-filter: blur(2px);
+    color: rgba(255, 255, 255, 0.932);
+    background-color: rgba(207, 207, 207, 0.432);
+    border-radius: 19px;
+    border: solid 1px rgba(141, 141, 141, 0.185);
+    border-bottom: solid rgba(255, 255, 255, 0);
+    border-left: none;
+    border-top-left-radius:0px ;
+    border-bottom-left-radius:0px ;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 0.4s;
+    position: fixed;
+    width: 200px;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+ }   
+ .Side:hover{
+    backdrop-filter: blur(15px) saturate(150%);
+ }
+ .Side ul{
+    margin: 0;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    width: 300px;
+    align-self: center;
+ }
+ .Side li{
+    display: inline;
+    margin: 3vh;
+    margin-left: 0px;
+    align-self: left;
+    width: 100%;
+    text-align: left;
+    list-style: none;
+ }
+ .Side li svg{
+
+    position: relative;
+    opacity: 50%;
+    top: 5px;
+ }
+ .Side li a{
+    border-radius: 10px;
+    border-top-left-radius:0px ;
+    border-bottom-left-radius: 0px;
+    text-decoration: none;
+    font-size:25px;
+    color: rgba(221, 221, 221, 0.692);
+    border:  solid 1px rgba(148, 148, 148, 0.062);
+    border-bottom: solid 1px rgba(255, 255, 255, 0);
+    background-color: rgba(212, 212, 212, 0.425);  
+    padding: 10px;
+    padding-left: 20%;
+    padding-right: 10%;
+    box-shadow: 0px 0px 10px 1px rgba(80, 80, 80, 0.174);  
+    transition: all 0.4s;
+}
+.Side li:hover a{
+    font-weight: 800;
+    background-color: rgba(212, 212, 212, 0.445);  
+    box-shadow: 0px 0px 50px 5px rgba(184, 184, 184, 0.397);  
+    color: rgba(255, 255, 255, 0.82); 
+    transition: all 0.4s;
+}
+.Side li svg{
+    left: 0px;
+    transition: all 0.5s;
+}
+.Side li:hover svg{
+    left: -5px;
+    transition: all 0.5s;
+}
+.side.active {  /* active类 */
+    color:rgb(255, 255, 255);
+
+    box-shadow: 0px 0px 50px 5px rgba(255, 255, 255, 0.326);
+    background-color: #dddddd9e;
+}
+.UserInfo{
+    background-color: rgba(209, 206, 206, 0.329);  
+    position: relative;
+    display: inline-flex;
+    height: 10vh;
+    top: 19px;
+    align-items: center;
+    width: 90%;
+    left: 0;
+    backdrop-filter: blur(10px);
+    border: solid 1px rgba(245, 245, 245, 0.269);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.094);
+    border-left: none;
+    border-radius: 2vh;
+    border-top-left-radius:0px ;
+    border-bottom-left-radius: 0px;
+    margin-bottom: 3vh;
+    transition: all 0.5s;
+}
+.UserInfo:hover{
+    box-shadow: none;
+    padding-left: 1px;
+    transition: all 0.5s;
+}
+.UserInfo .Head{
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 10vw;
+    margin-left: 10px;
+}
+.UserInfo h1{
+    font-size: 20px;
+    margin-left: 10px;
+    align-self: left;
+    transition: all 0.4s;
+ }
+.Hide{
+    position: fixed;
+    left: 135px;
+    top:89vh;
+    height: 40px;
+    width: 40px;
+    color: rgba(255, 255, 255, 0.594);
+    background-color: rgba(61, 61, 61, 0.269);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: solid 1.1px rgba(177, 177, 177, 0.167);
+    border-bottom: solid 0cqw rgba(255, 255, 255, 0.094);
+    box-shadow: 0px 0px 10px rgba(65, 65, 65, 0.402);
+    transition: all 0.4s;
+}
+.Hide:hover{
+    background-color: rgba(196, 196, 196, 0.269);
+    scale: 1.1;
+    transition: all 0.4s;
+}
+.Hide svg{
+    position: relative;
+    top: 2px;
+    opacity: 50%;
+    transition: all 0.4s;
+}
+#canvas{
+    opacity: 0;
+    pointer-events: none;
+}
+.volume-container {
+    
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    right: 140px;
+    top: 30px;
+    transform: translateY(-50%);
+    z-index: 1000;
+
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(201, 201, 201, 0.269);
+    border-radius: 10px;
+    border: solid 1px rgba(255, 255, 255, 0.082);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.226);
+    border-radius: 10px;
+    display: flex;
+    transition: all 0.4s;
+}
+
+.volume-icon {
+    
+    opacity: 0.5;
+    justify-self: center;
+    transition: all 0.4s;
+    position: relative;
+    cursor: pointer;
+    padding: 9px;
+    scale: 0.8;
+    transition: all 0.4s;
+  
+}
+.volume-container:hover .wrapper{
+    pointer-events: all;
+    width: 340px;
+    transition: all 0.4s;
+}
+.wrapper {
+    pointer-events: none;
+    position: fixed;
+    top: 0px;
+    right:0px;
+    width: 340px;
+    height: 50px;
+    transition: all 0.4s;
+}
+.vertical-bar {
+   position: relative;
+    padding: 0;
+    top: -70px;
+    border-radius: 10px;
+    width: 223px;
+    height: 0px;
+    left: 15px;
+    transition: all 0.4s;
+}
+
+.volume-container:hover {
+    background-color: rgba(102, 102, 102, 0.269);
+    border: solid 1px rgba(255, 255, 255, 0.082);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+}
+.volume-container:hover .wrapper {
+    transition: all 0.4s;
+    top: 0px;
+}
+.volume-container:hover .volume-icon{
+    scale: 1;
+
+    transition: all 0.4s;
+}
+.wrapper:hover .vertical-bar{
+    top: 1px;
+}
+.volume-track:hover{
+    scale: 1.1;
+ 
+} 
+
+.volume-track {
+
+    left: 60px;
+    scale: 1.1;
+    position: absolute;
+    transition: all 0.4s;
+    width: 200px;
+    height: 40px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+ 
+}
+.volume-track svg{
+    pointer-events: none;
+    scale: 0.8;
+    opacity: 1;
+    position: fixed;
+    top: 6px;
+    left: 5px;
+}
+.volume-progress {
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: all 0.4s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.volume-track:hover .volume-progress  {
+     opacity: 1;
+     box-shadow: 0 0px 15px 5px rgba(255, 255, 255, 0.637);
+}
+
+.volume-percent {
+    transition: all 0.4s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 8px);
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.ControlUp{
+    backdrop-filter: blur(15px) brightness(0.8);
+    overflow: hidden;
+    z-index: 701;
+    color: rgba(255, 255, 255, 0.594);
+    background-color: rgba(221, 221, 221, 0.651);
+    border-radius: 10px;
+    border-left: none;
+    border-bottom: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 0.4s;
+    position: fixed;
+    width: 400px;
+    height: 50px;
+    top: 82vh;
+    pointer-events: none;
+    opacity: 0;
+    left: 40vw;
+    display: inline-flex;
+    margin-left: 120px;
+}
+.ControlUp:hover{
+    box-shadow: 0px 0px 10px rgba(77, 77, 77, 0.402);
+    background-color: rgba(184, 184, 184, 0.548);
+}
+
+.speed{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: -45px;
+    justify-content: space-around;
+}
+.SS,.NN,.LF,.FF,.SF{
+    margin-left: 10px;
+    font-weight: bold;
+    margin-top: -10px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(29, 29, 29, 0.226);
+    border-radius: 10px;
+    height: 20px;
+    width: 10%;
+    text-align: center;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+.Lactive{
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.587);
+    background-color: rgba(255, 255, 255, 0.596);
+}
+
+.speed li:hover{
+    box-shadow: 0px 0px 10px rgba(206, 206, 206, 0.587);
+    background-color: rgba(255, 255, 255, 0.416);
+}
+.Control{
+    backdrop-filter: blur(1px) brightness(0.8);
+    overflow: hidden;
+    z-index: 699;
+    color: rgba(255, 255, 255, 0.594);
+    background-color: rgba(224, 224, 224, 0.596);
+    border-radius: 10px;
+    border-left: none;
+    border-bottom: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 0.4s;
+    position: fixed;
+    width: 50vw;
+    height: 90px;
+    bottom: 20px;
+    right: max(4vw,10px);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 120px;
+}
+.Control:hover{
+    backdrop-filter: blur(15px) brightness(0.8);
+    box-shadow: 0px 0px 10px rgba(77, 77, 77, 0.402);
+    background-color: rgba(253, 253, 253, 0.63);
+    transition: all 0.4s;
+}
+
+.leftI:hover{
+    box-shadow: 0px 0px 10px rgba(167, 167, 167, 0.402);
+    transition: all 0.4s;
+    scale: 1;
+    opacity: 100%;
+}
+.music-menu{
+    position: fixed;
+    right:210px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+
+}
+
+    /* 音乐图标容器 */
+    .music-menu {
+        position: relative;
+        cursor: pointer;
+       
+        display: inline-block;
+     
+        bottom: -80px;
+        
+    }
+
+    /* 音乐图标样式 */
+    .music-icon {
+        background-color:  rgba(99, 99, 99, 0.6);
+        border: 1px solid rgb(162 145 149 / 27%);
+  
+        transition: transform 0.2s;
+        border-radius: 0 10px 10px 0;
+        box-shadow: 0 0 13px rgb(162 145 149 / 27%);
+        
+    }
+
+    /* 悬浮效果 */
+    .music-menu:hover .music-icon {
+        transform: scale(1.1);
+    }
+
+    /* 列表容器 */
+    .playlist {
+      
+        position: absolute;
+        top: calc(100% + 10px); /* 显示在图标下方 */
+        left: 0; /* 左对齐 */
+        transform-origin: top left; /* 修改动画基点 */
+        width: 300px; /* 固定宽度 */
+        background: rgba(99, 99, 99, 0.6);
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(117, 255, 169, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        max-height: 0;
+        overflow-y: auto;
+        
+    }
+
+    /* 显示列表 */
+    .music-menu:hover .playlist {
+        opacity: 1;
+        visibility: visible;
+        max-height: 250px;
+        transform: translateY(0);
+    }
+
+   
+
+    /* 列表项容器 */
+    .track-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 单个音乐项 */
+  
+
+    .track-item {
+        padding: 13px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.43);
+        margin: 13px 15px;
+        border-radius: 13px;
+        color: rgb(255, 255, 255);
+    }
+
+    .track-item:hover {
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        transform: translateX(4px);
+    }
+
+    /* 歌曲信息 */
+    .track-info {
+        flex-grow: 1;
+        margin-right: 15px;
+    }
+
+    .track-title {
+       
+        display: flex;
+        align-items: center;
+    }
+
+    .track-artist {
+        font-size: 0.9em;
+        color:rgb(255, 255, 255);
+    }
+
+   
+
+    /* 当前播放状态 */
+    .track-item.playing {
+        background: rgba(255, 255, 255, 0.74);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .track-item.playing .track-title {
+        color:rgb(255, 255, 255);
+    }
+
+      /* 新增滚动条样式 */
+      .playlist {
+        left: 8px;
+        max-height: 320px; /* 调整最大高度 */
+        overflow-y: auto;  /* 启用垂直滚动 */
+         /* 火狐浏览器支持 */
+    }
+
+    /* 自定义滚动条 */
+    .playlist::-webkit-scrollbar {
+        width: 8px;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .playlist::-webkit-scrollbar-thumb {
+        background: rgb(255, 255, 255);
+        border-radius: 4px;
+    }
+
+    .playlist::-webkit-scrollbar-thumb:hover {
+        background: rgb(255, 255, 255);
+    }
+
+    /* 优化过渡效果 */
+    .playlist {
+        transition: 
+            opacity 0.3s ease,
+            visibility 0.3s ease,
+            transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* 新增加载更多功能 */
+    .load-more {
+        padding: 12px;
+        text-align: center;
+        color:rgb(255, 255, 255);
+        cursor: pointer;
+        border-top: 1px solid #eee;
+    }
+
+    .load-more:hover {
+        background: #f8f9fa;
+    }
+
+
+        /* 优化滚动容器样式 */
+        .playlist {
+        max-height: 320px;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
+    }
+
+    /* 自定义滚动条 */
+    .playlist::-webkit-scrollbar {
+        width: 6px;
+   
+        opacity: 0;
+    }
+
+    .playlist::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+     
+        opacity: 0;
+    }
+
+    .playlist::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        opacity: 0;
+    }
+
+    /* 滚动边界指示 */
+    .playlist::before,
+    .playlist::after {
+        content: '';
+        position: sticky;
+        height: 20px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .playlist::before {
+        top: 0;
+        background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+    }
+
+    .playlist::after {
+        bottom: 0;
+        background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+    }
+    @keyframes slideDownLeft {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .play-icon {
+        display: inline-block;
+        opacity: 0;
+        margin-right: 8px;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        color: rgb(255, 255, 255);
+    }
+
+    .track-item:hover .play-icon {
+        opacity: 1;
+        transform: translateX(3px);
+    }
+    .track-item.playing .play-icon {
+        opacity: 1;
+        color:rgb(255, 255, 255);
+    }
+
+  
+
+    /* 新增或修改以下CSS */
+    
+    .track-info {
+        flex-grow: 1;
+        margin-right: 15px;
+        min-width: 0; /* 关键：允许内容收缩 */
+    }
+
+    .track-title,
+    .track-artist {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: clamp(12px, 2.5cqw, 14px); /* 容器查询单位 */
+    }
+
+    /* 启用容器查询 */
+    .playlist {
+        container-type: inline-size;
+        container-name: playlist;
+    }
+
+    /* 备用方案：当容器查询不支持时 */
+    @supports not (container-type: inline-size) {
+        .track-title,
+        .track-artist {
+            font-size: 13px;
+        }
+    }
+
+.leftI{
+    border-left: none;
+    border-bottom: none;
+    border-left: none;
+    border-bottom: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    border-radius: 10px;
+    align-self: center;
+    height: 90px;
+    width: 90px;
+    background-size: cover;
+    opacity: 80%;
+    position: fixed;
+    bottom: 20px;
+    left: 35vw;
+
+    z-index: 700;
+    transition: all 0.4s;
+}
+.Rec{
+    animation: Recieve 0.8s cubic-bezier(0.49, -0.27, 0.58, 1.18) ;
+}
+.leftI img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 100%;
+    transition: all 0.4s;
+}
+.upper{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+.pd{
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: -60px;
+    width: 120px;
+    height: fit-content;
+    display: flex;
+    position: relative;
+    top: 5px;
+    transition: all 0.4s;
+}
+.Play:hover ,.Pause:hover{
+    scale: 1.05;
+    transition: all 0.4s;    
+}
+.Play{
+    scale: 0.9;
+    position: relative;
+    left: -60px;
+    transition: all 0.4s;
+}
+.PlayS{
+    filter: invert(100%);
+    fill: rgb(255, 255, 255);
+    stroke: rgb(255, 255, 255);
+    opacity: 50%;
+    stroke-width: 9px;
+    transition: all 0.4s;    
+}
+.PauseS{
+    filter: invert(100%);
+    fill: rgb(255, 255, 255);
+    stroke: rgb(255, 255, 255);
+    opacity: 0%;
+    stroke-width: 10;
+}
+.Nxt,.Bc{
+    filter: invert(100%);
+    margin: 0px;
+    opacity: 55%;
+    scale: 0.8;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.Bc{
+    rotate: 180deg;
+}
+.Nxt:hover,.Bc:hover{
+    scale: 0.9;
+    transition: all 0.4s;
+    
+}
+.NxtSF,.NxtSB,.BcA,.BcB{
+    fill: rgb(255, 255, 255);
+    stroke: rgb(255, 255, 255);
+    opacity: 100%;
+    stroke-width: 9px;
+}
+.Nxt{
+    position: relative;
+    top: 5px;
+}
+.lower{
+    width:100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.ProgressB{
+    align-self: center;
+    background-color: rgba(32, 32, 32, 0.32);
+    opacity: 100%;
+    width: 70%;
+    margin-left: 5px;
+    height: 5px;
+    border-radius: 10px;
+    z-index: 100;
+    margin-right: 1px;
+    transition: all 0.4s;
+}
+.ProgressB:hover{
+    border-radius: 8px;
+    height: 20px;
+}
+.ProgressB:hover .progress{
+    border-radius: 8px;
+    height: 20px;
+}
+.progress{
+    display: flex;
+    flex-shrink: 0;
+    justify-content: end;
+    width:100%;
+    border-radius: 10px;
+    height: 5px;
+    background-color: rgb(199, 199, 199);
+    box-shadow: 0px 0px 10px rgb(204, 204, 204);
+    transition: all 0.4s;
+}
+.Plu{
+    opacity: 0;
+    border:solid 1px rgba(255, 255, 255, 0.112);
+    border-left: none;
+    background-color: rgba(71, 71, 71, 0.269);
+    padding: 5px;
+    width: 45px;
+    left: 0px;
+    padding-bottom: 60px;
+    border-top-right-radius: 10px;
+    transition: all 0.4s;
+}
+.ProgressB:hover .handle{
+    opacity: 100%;
+    height: 15px;
+    transition: all 0.4s;
+}
+.handle{
+    cursor: pointer;
+    opacity: 0%;
+    background-color: rgba(108, 108, 108, 0.495);
+    width: 15px;
+    height: 15px;
+    position: relative;
+    margin-right: 5px;
+    top: 16%;
+    border-radius: 100px;
+    transition: all 0.4s;
+}
+.handle:hover{
+    background-color: rgba(108, 108, 108, 0.788);
+}
+.Detail{
+    filter: invert(100%);
+    width: fit-content;
+    font-size: 14px;
+    padding: 5px;
+    align-self: center;
+}
+ 
+.FunctionL{
+    opacity: 0;
+    position: relative;
+    right: 50px;
+    top:-20px;
+    list-style: none;
+    z-index: -1;
+    position: fixed;
+    transition: all 0.4s;
+}
+.coverImage{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+.leftI{
+
+    z-index: 5;
+    padding: 0px;
+}
+
+.love,.FullM{
+    box-shadow: 0px 0px 10px rgba(204, 204, 204, 0.235);
+    border: solid 1px rgba(250, 250, 250, 0.543);
+    border-left: none;
+    border-bottom: none;
+    background-color: rgba(90, 90, 90, 0.735);
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 15px;
+    scale: 0.7;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+.love:hover,.FullM:hover{
+    scale: 0.8;
+    background-color: rgba(255, 255, 255, 0.664);
+    color: rgba(92, 92, 92, 0.616);
+    transition: all 0.4s;
+}
+.FunctionL li:hover svg path{
+    stroke: rgb(59, 59, 59);
+}
+.leftI:hover  .FunctionL{
+    opacity: 1;
+    transform: translateX(-37px);
+    transition: all 0.4s;
+}
+.FunctionL:hover {
+    opacity: 1;
+    transform: translateX(-37px);
+    transition: all 0.4s;
+}
+.PlayList{
+    opacity: 0;
+    width: 97%;
+    height: 300px;
+    overflow: hidden;
+    overflow-y:scroll;
+}
+.Def{
+    list-style: none;
+    box-shadow: 0px 0px 10px rgba(204, 204, 204, 0.235);
+    border: solid 1px rgba(250, 250, 250, 0.543);
+    border-left: none;
+    border-bottom: none;
+    background-color: rgba(90, 90, 90, 0.735);
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: -45px;
+    text-align: center;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    scale: 0.8;
+    color: #f8f9fa;
+    width: 110%;
+    height: 50px;
+}
+.Def:hover{
+    scale: 0.9;
+    background-color: #ffffff71;
+    color: #5c5c5c6e;
+}
+.Added{
+    background-color: #ffffff71;
+    color: #5c5c5c6e;
+}
+.love{
+    z-index: 2000;
+}
+.ListN{
+    
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    position: fixed;
+    z-index: 3000;
+    overflow: hidden;
+    top:10px;
+    left: 300px;
+    outline: none;
+    backdrop-filter: blur(6px);
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(180, 180, 180, 0.269);
+    border-radius: 10px;
+    border: solid 1px rgba(255, 255, 255, 0.082);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    transition: all 0.4s;
+    font-size: 20px;
+    width: 45px;
+    height: 43px;
+    z-index: 698;
+}
+.ListN p{
+    opacity: 0;
+    position: relative;
+    left: 30px;
+    top: -12px;
+    transition: all 0.2s;
+}
+.ListN:hover{
+    background-color: rgba(135, 135, 135, 0.269);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.116);
+
+}
+.ListN svg{
+    position: relative;
+    left: 8px;
+    top: 8px;
+}
+.List{
+    filter: invert(100%);
+    cursor: pointer;
+    scale: 1.2;
+    position: relative;
+    opacity: 0.5;
+    top: 20px;
+    right: 15px;
+    width: 30px;
+    overflow: hidden;
+    height:30px;
+}
+.CycleO{
+    opacity: 0;
+}
+.Random{
+    position: relative;
+    top: -32px;
+    scale: 0.9;
+    opacity: 0;
+}
+.Cycle{
+    position: relative;
+    top: -64px;
+    opacity: 0;
+}
+.Visual{
+    filter: invert(100%);
+    cursor: pointer;
+    position: relative;
+    top: 18px;
+    left: 50px;
+    width: 30px;
+    height:30px;
+    opacity: 0.5;
+}
+.Visual:hover{
+    opacity: 1;
+}
+.List:hover{
+    opacity: 1;
+}
+.Show{
+    opacity: 1;
+}
+.Speed{
+    filter: invert(100%);
+    cursor: pointer;
+    scale: 1.1;
+    position: relative;
+    top: 19px;
+    left: 15px;
+    width: 30px;
+ 
+    height:30px;
+    opacity: 0.5;
+}
+.Speed:hover{
+    opacity: 1;
+}
+.video{
+    position: fixed;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 100vh;
+    pointer-events: none;
+    background-color: black;
+    transition: all 0.4s;
+}
+.BackV{
+    color:rgba(255, 255, 255, 0.594);
+    background-color: rgba(0, 0, 0, 0.269);
+    border-radius: 10px;
+    width:42px;
+    height: 42px;
+    border: solid 1px rgba(255, 255, 255, 0.205);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.402);
+    backdrop-filter: blur(6px);
+    position: fixed;
+    padding:0px;
+    left: 96vw;
+    top: 10px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1900;
+    display: flex;
+    transition: all 0.4s;
+}
+.BackV:hover{
+    transition: all 0.4s;
+    background-color: rgba(135, 135, 135, 0.269);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.116);
+
+}
+.BackV svg{
+    scale: 0.8;
+    opacity: 55%;
+    padding: 7px;
+    rotate: 45deg;
+    justify-self: center;
+    transition: all 0.4s;
+}
+.BackV:hover svg{
+    rotate: 0deg;
+    transition: all 0.4s;
+}
+.Trans{
+    animation: ChangeI 0.8s cubic-bezier(0.75, -0.02, 0.29, 1.03);
+}
+.OutS{
+    opacity: 1;
+    pointer-events: all;
+    animation: SpeedAp 0.4s cubic-bezier(0.10, 0.57, 0.42, 1.28);
+}
+@media (max-width: 800px){
+    .MusicVis{
+        opacity: 0;
+        pointer-events: none;
+    }
+    .Visual{
+        opacity: 0;
+        pointer-events: none;
+    }
+    .Hide{
+        opacity: 0;
+        pointer-events: none;
+    }
+    .Side{
+        height: 82vh;
+    }
+    .leftI{
+        left: 82vw;
+        bottom: 130px;
+    }
+    .Control{
+        position: fixed;
+        margin: 0px;
+        transform: "translateX(0) translateY(0px)";
+        width: 100%;
+        border-radius: 0px;
+        left: 0px;
+    }
+     
+}
+ 
+
+@keyframes pauseTransform{
+    from{
+        opacity: 0.5;
+    }
+    to{
+       x: 38px;
+       stroke-width: 2px;
+       height: 44px;
+       opacity: 0;
+    }
+}
+@keyframes playTransform{
+    0%{
+        opacity: 0;
+        fill-opacity: 0;
+        stroke-opacity: 0;
+        stroke-width: 0;
+        stroke-dasharray: 300 300;
+        stroke-dashoffset: -300;
+    }
+    50%{
+        fill-opacity: 0;
+        opacity: 0.5;
+        stroke-opacity: 1;
+        stroke-width: 5;
+        stroke-dasharray: 300 300;
+        stroke-dashoffset: 0;
+    }
+    100%{
+        stroke-width: 10;
+        fill-opacity: 1;
+        opacity: 0.5;
+    }
+}
+@keyframes NxtTransform{
+    0%{
+        margin-left: 0px;
+    }
+    50%{
+        margin-left: 10px;
+    }
+    100%{
+        margin-left: 0px;
+    }
+}
+@keyframes NxtTransformA{
+    0%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 0.2;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes NxtTransformB{
+    0%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 1;
+    }
+}
+@keyframes BcTransform{
+    0%{
+        margin-left: 0px;
+    }
+    50%{
+        margin-left: -10px;
+    }
+    100%{
+        margin-left: 0px;
+    }
+}
+@keyframes Play{
+    0%{
+ 
+    }
+    50%{
+        scale: 0.1;
+    }
+    100%{
+        opacity: 0;
+        border-radius: 90px;
+        scale: 0.1;
+        top: 43vh;
+        left: -10vw;
+    }
+}
+@keyframes PlayV{
+    100%{
+        scale:1;
+        opacity: 1;
+        top:0;
+        left: 0;
+    }
+    50%{
+        scale: 0.1;
+    }
+    0%{
+        opacity: 0;
+        border-radius: 90px;
+        scale: 0.1;
+        top: 43vh;
+        left: -10vw;
+    }
+}
+@keyframes Jump{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+@keyframes  ChangeI {
+    0%{ transform: translate(0px); opacity: 100%;}
+    50%{ transform: translate(0,-100vw); opacity: 0%; }
+    51%{ transform: translate(0,100vw); opacity: 0%;}
+    100%{ transform: translate(0px); opacity: 100%;}
+}
+
+@keyframes Recieve{
+    0%{ transform: translate(0px);}
+    50%{ transform: translate(0,200px); }
+    100%{ transform: translate(0px); }
+}
+
+@keyframes SpeedAp {
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    0%{
+        opacity: 0;
+        transform:translateY(100px);
+    }
+}

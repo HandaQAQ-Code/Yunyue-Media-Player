@@ -1,0 +1,566 @@
+html{
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    scroll-behavior: smooth;
+    user-select: none;
+    /* overflow: hidden; */
+}
+*{
+
+    transition: all 0.5s ease;
+}
+.bt{
+    /* padding: 15px; */
+    margin: 10px 0;
+    padding-left: 15px;
+    font-size: 45px;
+    color: rgba(255, 255, 255, 0.63);
+}
+.jt{
+    width: 30px;
+}
+.jt2{
+    width: 30px;
+   
+}
+/* 主容器 */
+.container {
+
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 通用页面样式 */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+/* 初始状态：主菜单可见 */
+.main-menu {
+    transform: translateX(0);
+}
+
+/* 设置页面初始状态：隐藏在右侧 */
+.settings-page {
+    transform: translateX(100%);
+}
+
+/* 激活状态 */
+.page.active {
+    transform: translateX(0);
+    z-index: 1;
+}
+
+/* 离开状态 */
+.page.leave {
+    transform: translateX(-100%);
+}
+.subitem:hover{
+    background-color: #a1a1a1;
+}
+/* 原有样式保持 */
+.slb {
+    margin: 0;
+    width: 95%;
+    padding: 15px;
+    list-style: none;
+}
+.lb {
+    display: flex;
+    height: 40px;
+    background-color: rgba(221, 221, 221, 0.531);
+    color: rgb(255, 255, 255);
+    margin: 10px 0;
+    padding: 20px;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+   
+}
+
+.lb:hover {
+    background-color: #979797;
+    scale: 1.02;
+    box-shadow: 0 0 6px rgba(218, 218, 218, 0.3);
+}
+.back-btn {
+    margin-left: 15px;
+    padding: 10px;
+    padding-left: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #dfdfdf;
+    width: 80px;
+    background-color: #c0c0c09c;
+}
+.back-btn:hover{
+    background-color: #a1a1a1;
+}
+.tp{
+    width: 25px;
+    margin-right: 10px;
+}
+
+
+
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(154, 154, 154);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: rgb(255, 255, 255);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: rgb(236, 236, 236);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(25px);
+    -ms-transform: translateX(25px);
+    transform: translateX(25px);
+}
+
+
+
+.hide{
+    scale: 0.5;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 父菜单项基础样式 */
+.lb.menu-item {
+    position: relative;
+  
+}
+/* 在qq.css中添加 */
+.lb.menu-item.active {
+    background-color: rgba(150, 150, 150, 0.63) !important; /* 加深颜色 */
+}
+.lb:hover .tp{
+    transform: rotate(-10deg);
+}
+
+/* 子菜单容器 */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    opacity: 0;
+    padding: 8px 0;
+    margin-top: 4px;
+    margin-left: 0;
+    scale: 0;
+    z-index: 100; /* 确保高于其他元素的z-index */
+    /* 其他原有样式保持 */
+ 
+
+}
+.menu-item.active .jt{
+    transform: rotate(90deg);
+}
+/* 展开状态 */
+.menu-item.active .submenu {
+    animation: show 0.5s ease;
+    transition: all 0.5s;
+    max-height: 500px;
+    scale: 1;
+    opacity: 1;
+}
+@keyframes show {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+/* 子菜单项样式 */
+.subitem {
+    height: auto;
+    display: flex;
+    height: 50px;
+    background-color: rgba(110, 110, 110, 0.63);
+    color: rgb(255, 255, 255);
+    margin: 10px 0;
+    padding: 20px;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    
+}
+
+.subitem .jt2{
+    opacity: 0;
+}
+
+
+
+.shortcut-input-container{
+    margin-left: auto;
+    width: 130px;
+    height: 48px;
+    border-radius: 15px;
+    background-color: rgb(196, 196, 196);
+}
+.shortcut-input{
+    width: 100%;
+    font-size: 15px;
+    height: 100%;
+    border: 0;
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+    background-color: rgb(196, 196, 196);
+    outline: none;
+}
+
+/* qq.css 新增 */
+.shortcut-input-container {
+    display: none; /* 默认隐藏输入框 */
+    margin-left: auto;
+}
+
+.shortcut-display {
+    display: none; /* 默认隐藏显示区域 */
+    margin-left: auto;
+    padding: 0 15px;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+
+/* 在qq.css的.shortcut-input相关样式中添加 */
+.shortcut-input {
+    text-align: center; /* 文字居中 */
+}
+
+.shortcut-input::placeholder {
+    color: white;       /* 占位符颜色 */
+    opacity: 1;         /* 解决Firefox默认透明度问题 */
+}
+
+/* 浏览器兼容性处理 */
+.shortcut-input::-webkit-input-placeholder { /* Chrome/Safari */
+    color: white;
+}
+.shortcut-input:-moz-placeholder {           /* Firefox 18- */
+    color: white;
+}
+.shortcut-input::-moz-placeholder {          /* Firefox 19+ */
+    color: white;
+}
+.shortcut-input:-ms-input-placeholder {      /* IE 10+ */
+    color: white;
+}
+
+        
+        
+        
+
+
+
+
+/* 修改CSS选择器优先级 */
+li.lb.shortcut-item .shortcut-input-container {
+    display: none;
+    
+}
+
+li.lb.shortcut-item .shortcut-display {
+    display: none;
+    
+}
+
+.activeS .jt2{
+    opacity: 1;
+}
+
+
+
+
+
+
+.submenu {
+    display: none; /* 初始隐藏 */
+    position: absolute;
+    /* 其他原有样式保持 */
+}
+
+.menu-item.active .submenu {
+    display: block; /* 激活时显示 */
+    animation: show 0.5s ease;
+    max-height: 500px;
+    opacity: 1;
+}
+
+
+
+
+  
+
+.slider1 {
+   
+    -webkit-appearance: none;
+    flex: 1;
+    height: 10px;
+    background: rgb(83, 81, 81); 
+    border-radius: 5px;
+    outline: none;
+    margin: 0;
+}
+
+/* 已滑过部分为白色 */
+.slider1::-webkit-slider-runnable-track {
+    height: 10px;
+    background: linear-gradient(to right, 
+        #fff 0%, 
+        #fff var(--progress), 
+        rgb(83, 81, 81) var(--progress), 
+        rgb(83, 81, 81) 100%);
+    border-radius: 5px;
+}
+
+/* 滑块样式 */
+.slider1::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: rgb(196, 196, 196);
+    border-radius: 50%;
+    border: 3px solid rgb(196, 196, 196);
+    margin-top: -7px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.slider1::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.channel-label {
+    color: white;
+    font-size: 16px;
+    width: 60px;
+}
+
+
+
+
+
+/* 使子菜单项可以包含自定义内容 */
+.subitem[style*="height: auto"] {
+background-color: transparent !important;
+padding: 0 !important;
+box-shadow: none !important;
+}
+
+.subitem[style*="height: auto"] .channel-control {
+padding: 10px;
+width: 100%;
+background: rgba(185, 185, 185, 0.63);
+}
+.subitem[style*="height: auto"] .channel-control:hover{
+    background-color:#979797; 
+}
+
+
+
+
+.cx{
+    display: flex;
+    height: auto;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.qdan{
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin:  0;
+padding: 4px 45px;
+border-radius: 10px;
+background-color:rgb(83, 81, 81);
+color: rgb(255, 255, 255);
+font-size: 16px;
+border: 0;
+cursor: pointer;
+margin-left: 20px; 
+
+
+}
+.qdan:hover{
+scale: 1.02;
+}
+
+.cx1{
+display: flex;
+}
+.cxx1{
+
+border: 0;
+color: rgb(255, 255, 255);
+background-color: rgb(83, 81, 81);
+border-radius: 10px;
+outline: none;
+margin: 0 8px;
+padding: 5px;
+font-size: 17px;
+}
+.cxx2{
+
+border: 0;
+color: rgb(255, 255, 255);
+background-color: rgb(83, 81, 81);
+border-radius: 10px;
+outline: none;
+padding: 5px;
+width: 50px;
+margin: 0 23px;
+font-size: 17px;
+}
+
+
+
+.dzdz{
+    display: flex;
+    gap: 20px; 
+    width: 600px;
+}
+.dzdz1{
+    margin-top: 10px;
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 20px; 
+    width: 500px;
+}
+
+
+
+/* 声道控制行样式 */
+.channel-row {
+display: flex;
+align-items: center;
+width: 100%;
+padding: 20px 0;
+}
+
+
+.channel-control {
+display: flex;
+flex-direction: column;
+width: 100%;
+gap: 10px;
+font-size: 20px;
+border-radius: 32px;
+}
+.channel-control:hover{
+    background-color:#979797; 
+
+}
+
+/* 调整滑块宽度 */
+.channel-row .slider1 {
+flex: 1;
+margin: 0 45px;
+
+}
+@media (max-width: 800px) {
+    .subIP{
+        height: 200px;
+    }
+    .dzdz{
+        flex-wrap: wrap;
+    }
+    .dzdz1{
+        width: 100%;
+    }
+
+    .cxx1{
+        width: 300px;
+        height: 35px;
+    }
+}
+
+
+/* 网络代理菜单项悬停时控制子元素 */
+li.lb.menu-item:hover .cxx1,
+li.lb.menu-item:hover .cxx2,
+li.lb.menu-item:hover .qdan {
+background-color: rgba(123, 123, 123, 0.377) !important;
+transition: background-color 0.3s ease;
+}
+
+
+
+

@@ -1,0 +1,809 @@
+.zhengti {
+    position: relative;
+}
+body{
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        -webkit-user-drag: none;
+}
+*{
+    user-select: none;
+
+    transition: all 0.3s;
+}
+
+.pz{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.ge-dan-container {         
+    top: 0;
+    left: 0;
+    right: 0;          
+    z-index: 1000;       
+    padding-left: 42px;
+    padding-right: 42px;
+}
+.biao-ti h2 {
+    color: rgba(229, 230, 229, 0.55);
+    font-size: 4rem;
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.an-nu {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab {
+    padding: 0.4rem 1.7rem;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    left: 40px;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.14);
+    color: rgba(229, 230, 229, 0.55);
+    border: 2px solid transparent;
+}
+
+.tab.active {
+    background: rgba(255, 255, 255, 0.6);
+    color: rgba(229, 230, 229, 0.55);
+    transform: translateY(-3px);
+    box-shadow: 0 2px 13px #c0c0c0;
+}
+
+.tab:not(.active):hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 2px 13px rgba(0, 0, 0, 0.08);
+}
+
+ul {
+    transition: all 0.4s;
+    list-style: none;
+    padding: 10;
+    padding-right: 50px;
+    margin: 0;
+}
+
+li {
+    border-radius: 10px;
+
+    border: solid 1px rgba(255, 255, 255, 0.1);
+
+    padding: 10px ;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+a{
+    text-decoration: none;
+    color: rgba(229, 230, 229, 0.55);
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+
+.lie-biao li {
+    font-size: 20px;
+    position: relative;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transform: translateX(0);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+.lie-biao li:hover {
+    box-shadow: 0 4px 16px rgba(180, 180, 180, 0.15);
+    background: rgba(180, 180, 180, 0.555);
+    transition:  all 0.5s;
+    
+}
+
+.lie-biao li a {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+li.playing {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 13px #c0c0c0;
+}
+
+li.playing:hover {
+    box-shadow: 0 2px 13px #c0c0c0;
+}
+
+@media (max-width: 768px) {
+    .action-btn{
+        display: none;
+    }
+    .ge-dan-container {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .biao-ti h2 {
+        font-size: 1.8rem;
+    }
+
+    .an-nu {
+        width: 190px;
+      
+        flex-direction: column;
+    }
+
+    .tab {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .action-btn{
+        display: none;
+    }
+    .biao-ti h2 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+@media (min-width: 786px) {
+    .lie-biao {
+        padding:0 42px;
+    }
+}
+/*sroll*/
+.scrollcon {
+    background-color: rgba(63, 63, 63, 0.979);
+    height: 100vh;
+    border-radius: 0px;
+    position: fixed;
+    right: 0px;
+    width: 9px;
+    transition: all 0.4s;
+}
+.scroll{
+    background-color: rgba(255, 255, 255, 0.269);
+    height: 50%;
+    border-radius: 15px;
+    position: relative;
+    right: 0px;
+    width: 9px;
+    transition: all 0s;
+}
+.scroll:hover{
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.315);
+    background-color: rgb(255, 255, 255);
+    transition: all 0.4s;
+}
+
+
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+
+.music-name {
+    display: inline-block;
+    max-width: 600px;
+    white-space: nowrap;
+    text-overflow: clip;
+    transition: 0.3s;
+}
+
+
+
+.music-name[data-overflow="true"] {
+    animation: scroll 9s linear infinite;
+    text-overflow: clip;
+}
+
+
+.song-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+}
+    
+li.swiped {
+    transform: translateX(-160px);
+}
+    
+li.swiped .song-actions {
+    opacity: 1;
+}
+    
+.action-btn {
+    background: 0;
+    cursor: pointer;
+    border: 0;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+    
+.delete-btn img{
+    width: 90px;
+    height: 9cap;
+}
+    
+.edit-btn img{
+    width: 90px;
+    height: 90px;
+}
+    
+    /* 阻止文本选中 */
+li {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+ 
+
+
+.bian-ji {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(31, 31, 31, 0.74);
+    border-radius: 32px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 2rem;
+    padding-bottom: 13px;
+}
+
+.bian-ji.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.sh {
+    display: flex;
+    gap: 2rem;
+            
+}
+
+
+.xiu-gai {
+    flex: 1;
+}
+
+.form-item {
+    margin-bottom: 0.8rem;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.la {
+    width: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(232, 232, 232);
+    flex-shrink: 0;
+}
+
+.input-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.iut {
+    width: 92.5%;
+    padding: 0.6rem 0.1rem 0.6rem 0.8rem;
+    border: 0;
+    background-color:rgba(83, 83, 83, 0.78);
+    border-radius: 9px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s;
+    color: rgb(232, 232, 232);
+}
+
+
+.iut:disabled {
+    background: rgba(83, 83, 83, 0.78);
+    cursor: not-allowed;
+    color: rgb(232, 232, 232);
+}
+
+.iut:focus {
+    outline: none;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.delete-btn {
+    cursor: pointer;
+    color: rgb(232, 232, 232);
+}
+    /* 新增按钮样式 */
+.metadata-btn-container {
+display: flex;
+justify-content: center;
+margin-top: 0.8rem;
+}
+
+.metadata-btn {
+padding: 7px 24px;
+background-color: rgba(83, 83, 83, 0.78);
+color: rgb(232, 232, 232);
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-size: 15px;
+transition: all 0.3s;
+backdrop-filter: blur(5px);
+}
+
+.metadata-btn:hover {
+background-color:rgba(83, 83, 83, 0.78);
+transform: translateY(-1px);
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+
+.close-btnn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #666;
+    color: rgb(232, 232, 232);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btnn:hover {
+    background: #888;
+}
+
+
+input::placeholder{
+color:rgb(255, 255, 255);
+}
+
+
+         /* 添加歌单相关样式 */
+ .add-playlist-btn {
+    background: rgba(255, 255, 255, 0.14);
+    border: none;
+    position: fixed;
+    color: rgba(229, 230, 229, 0.55);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    width: 44px; 
+    height: 44px;
+    border-radius: 50%;
+    right: 90px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 30px;
+ }
+        
+.add-playlist-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+        
+.music-name-container {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+        
+.song-count {
+     margin-left: auto;
+    padding: 0 2rem;
+    color: rgba(229, 230, 229, 0.55);
+    min-width: 100px;
+    text-align: right;
+ }
+        
+.create-playlist-dialog,.rename-dialog {
+    width: 400px;
+    padding: 1.5rem;
+}
+        
+.confirm-create,.confirm-rename {
+    width: 50%;
+    margin-top: 1rem;
+}
+        
+ 
+
+.zm{
+    width: 400px;
+    height: 400px;
+}
+
+/* 页面切换样式 */
+
+.page.main-menu {
+    transform: translateX(0);
+    transition: all 0.3s ease;
+}
+
+.page.main-menu:not(.active) {
+    transform: translateX(-100%);
+}
+
+.page.playlist-page {
+    transform: translateX(100%);
+}
+
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease;
+}
+
+.playlist-page {
+    transform: translateX(100%);
+}
+
+.page.active {
+    transform: translateX(0);
+}
+
+
+.ia{
+    display: block;
+    margin: 0 70px;
+justify-content: center   ; 
+justify-content: center;
+}
+
+
+.shangg{
+    height: fit-content;
+}
+
+.shangg img {
+    width: 317px;
+    height: 317px;
+    margin-left: 110px;
+    border-radius: 30px;
+    margin-right: 50px;
+    margin-top: 25px;
+    transition: all 0.2s;
+}
+.shangg img:hover{
+    transform: scale(1.05);
+}
+
+.Rightt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: left;
+}
+
+.Name2 {
+    height: fit-content;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    color: rgba(229, 230, 229, 0.55);
+}
+
+.Name2 h2 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.Name2 h3 {
+    font-size: 35px;
+    margin-bottom: 36px;
+}
+
+.Name2 button {
+    padding: 6px 0;
+    width: 181px;
+    height: 40px;
+    border-radius: 12px;
+    background-color:  rgba(229, 230, 229, 0.55);
+    border: none;
+    color:  rgba(255, 255, 255, 0.53);
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.2s;
+}
+
+.Name2 button:hover {
+    background-color: rgba(229, 230, 229, 0.55);
+    scale: 1.1;
+}
+
+
+ 
+
+
+.pz{
+    color: rgb(255, 255, 255); text-align: center;
+}
+/* 新增播放列表歌曲样式 */
+.byy li {
+    position: relative;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+
+    padding: 0 40px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.byy li:hover{
+
+background: rgba(180, 180, 180, 0.555);  
+transition: all 0.5s;
+}
+
+.byy li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(229, 230, 229, 0.55);
+    gap: 15px;
+    width: 100%;
+}
+
+
+
+.byy .album-cover {
+    width: 75px;
+    height: 75px;
+    border-radius: 13px;
+    object-fit: cover;
+}
+
+.byy .music-name {
+    font-size: 25px;
+    font-weight: 600;
+    max-width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.byy .time {
+    margin-left: auto;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.byy .song-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding-right: 20px;
+
+}
+
+
+.byy li.swiped{
+    transform: translateX(-92px);
+}
+
+
+
+.back-btn{
+    margin: 20px 0 10px 110px; 
+    background-color: rgba(255, 255, 255, 0.14); 
+    border: 0;
+    color: rgba(229, 230, 229, 0.55);
+    padding: 10px;
+    padding-left: 15px; 
+    border-radius: 10px;   
+    margin-bottom: 20px;   
+    cursor: pointer;    
+    font-weight: bolder;   
+    font-size: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+.back-btn:hover{
+    transform: scale(1.1);
+}
+
+
+
+/* 新增标签容器样式 */
+.song-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+/* 标签样式 */
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;  
+    padding: 1px 6px;  
+    margin: 6px;    
+    background-color: rgba(197, 197, 197, 0.78);
+    color: rgb(232, 232, 232);
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+/* 调整信息布局 */
+.song-info {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    margin-left: 15px;
+}
+
+.song-title {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+/* 新增歌曲标题滚动样式 */
+.byy .song-title {
+    display: inline-block;
+    max-width: 600px;
+    white-space: nowrap;
+    text-overflow: clip;
+    transition: 0.3s;
+}
+
+.byy .song-title[data-overflow="true"] {
+    animation: scroll 9s linear infinite;
+    text-overflow: clip;
+}
+
+
+.song-artist {
+    font-size: 20px;
+
+}
+
+.song-duration {
+    margin-left: auto;
+    padding-left: 20px;
+    font-size: 20px;
+
+}
+.Rightt {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    float: left;
+}
+/* 歌曲列表特有样式 */
+.song-cover {
+    width: 90px;
+    height: 90px;
+    border-radius: 13px;
+    object-fit: cover;
+}
+
+
+.delete-song-btn img {
+    width: 80px;
+    height: 80px;
+}
+
+.cflb{
+    display: flex;
+    flex-direction: column;
+}
+.byy{
+    margin-top: 20px;
+}
+li.playing {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 13px #c0c0c0;
+}
+li.playing .action-btn{
+    opacity: 0;
+    pointer-events: none;
+}
+
+li.playing:hover {
+    box-shadow: 0 2px 13px #c0c0c0;
+}
+
+@media screen and (max-width: 768px) {
+    #playlist-list{
+        margin-right: 30px;
+    }
+
+    .song-cover{
+        display: none;
+    }
+    .byy li{
+        padding: 0px;
+    }
+    .ia{
+        display: block;
+        margin: 0px; 
+        margin-left: -2px;
+        margin-right: 20px;
+        justify-content: center;
+    }
+    #cover-picture{
+        margin-left: 10%;
+    }
+    .Name2 button{
+        margin-left: 15%;
+    }
+    .shangg img {
+       
+        margin-left: 32px;
+       margin-right: 20px;
+    }
+    .Rightt{
+        justify-content: center;
+        height: fit-content;
+    }
+}
+ 
+
+

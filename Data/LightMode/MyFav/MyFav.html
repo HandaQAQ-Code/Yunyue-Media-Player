@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的歌单</title>
+    <link rel="stylesheet" href="./MyFav.css">
+
+</head>
+    <style>
+        @font-face {
+            font-family: "Bits";
+            src: url("../Inter-Bold.otf");
+    }
+
+    * {
+        font-family: "Bits", serif;
+    }
+    </style>
+<body>
+
+<!-- 播放列表页面 -->
+<div class="page playlist-page" >
+    <div class="cflb">
+        <div class="shangg">
+            <div class="Rightt">
+            <img id="album-cover"  src="../BackDrop/Fav.png" alt="专辑封面">
+            <div  class="Name2 ">
+                <h2 id="playlist-title">我的最爱</h2>
+                <h3 id="playlist-count">共10首</h3>
+            </div>
+            </div>
+           
+        </div>
+        <div class="an-nu">
+            <div class="tab ben-di active" data-type="music">音乐</div>
+            <div class="tab zai-xian" data-type="video">视频</div>
+        </div>
+          
+        <div class="ia">
+            <ul class="byy" id="music-list" style=" padding: 15px 0;"></ul>
+            <ul class="byy HideL" id="video-list" style="padding: 15px 0;"></ul>
+        </div>
+    </div>
+</div>
+    <script src="./MyFav.js"></script>
+
+</body>
+</html>

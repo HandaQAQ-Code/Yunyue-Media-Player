@@ -1,0 +1,63 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main/BackDrop/BluY.png</file>
+        <file>Main/BackDrop/Br.jpg</file>
+        <file>Main/BackDrop/De.jpg</file>
+        <file>Main/BackDrop/Default.jpg</file>
+        <file>Main/BackDrop/GR.png</file>
+        <file>Main/BackDrop/GreenB.png</file>
+        <file>Main/BackDrop/PinkG.png</file>
+        <file>Main/BackDrop/PurpleB.png</file>
+        <file>Main/BackDrop/RainboR.png</file>
+        <file>Main/BackDrop/SilverG.png</file>
+        <file>Main/BackDrop/UnknD.png</file>
+        <file>Main/BackDrop/UnknL.png</file>
+        <file>Main/BackDrop/YellowO.png</file>
+        <file>Main/Lyric/FullScreen.html</file>
+        <file>Main/Lyric/HFull.css</file>
+        <file>Main/Lyric/HFull.js</file>
+        <file>Main/Lyric/HLyric.css</file>
+        <file>Main/Lyric/HLyric.html</file>
+        <file>Main/Lyric/HLyric.js</file>
+        <file>Main/MyList/MyList.css</file>
+        <file>Main/MyList/MyList.html</file>
+        <file>Main/MyList/MyList.js</file>
+        <file>Main/Setting/images/Chi.png</file>
+        <file>Main/Setting/images/Round.png</file>
+        <file>Main/Setting/images/svg (10).png</file>
+        <file>Main/Setting/images/svg (11).png</file>
+        <file>Main/Setting/images/svg (12).png</file>
+        <file>Main/Setting/images/svg (13).png</file>
+        <file>Main/Setting/images/svg (14).png</file>
+        <file>Main/Setting/images/svg (15).png</file>
+        <file>Main/Setting/images/svg (16).png</file>
+        <file>Main/Setting/images/svg (17).png</file>
+        <file>Main/Setting/images/svg (18).png</file>
+        <file>Main/Setting/images/svg (19).png</file>
+        <file>Main/Setting/images/svg (2).png</file>
+        <file>Main/Setting/images/svg (20).png</file>
+        <file>Main/Setting/images/svg (21).png</file>
+        <file>Main/Setting/images/svg (22).png</file>
+        <file>Main/Setting/images/svg (23).png</file>
+        <file>Main/Setting/images/svg (24).png</file>
+        <file>Main/Setting/images/svg (25).png</file>
+        <file>Main/Setting/images/svg (26).png</file>
+        <file>Main/Setting/images/svg (27).png</file>
+        <file>Main/Setting/images/svg (3).png</file>
+        <file>Main/Setting/images/svg (4).png</file>
+        <file>Main/Setting/images/svg (5).png</file>
+        <file>Main/Setting/images/svg (6).png</file>
+        <file>Main/Setting/images/svg (7).png</file>
+        <file>Main/Setting/images/svg (8).png</file>
+        <file>Main/Setting/images/svg (9).png</file>
+        <file>Main/Setting/images/Vector.png</file>
+        <file>Main/Setting/images/Yes.png</file>
+        <file>Main/Setting/Setting.css</file>
+        <file>Main/Setting/Setting.html</file>
+        <file>Main/Setting/Setting.js</file>
+        <file>Main/HCScript.js</file>
+        <file>Main/HCStyle.css</file>
+        <file>Main/HIndexM.html</file>
+        <file>Main/jsmediatags.min.js</file>
+    </qresource>
+</RCC>
